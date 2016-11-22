@@ -1,2 +1,2 @@
 # ftryweb
-ftrt 后台管理界面
+ftry 后台管理界面
