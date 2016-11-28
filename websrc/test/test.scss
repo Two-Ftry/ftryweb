@@ -1,0 +1,16 @@
+body{
+  font-family: sans-serif;
+  img{
+    width: 160px;
+    height: 160px;
+    border-color: #f00;
+    border-radius: 4px;
+    transition: width 3s;
+  }
+  img:hover{
+    width: 360px;
+  }
+  a{
+    display: flex;
+  }
+}
