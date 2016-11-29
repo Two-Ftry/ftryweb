@@ -3,6 +3,7 @@
  */
 
 var autoprefixer = require('autoprefixer');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var nodeModules = 'node_modules';
 
@@ -20,9 +21,9 @@ var config = {
         test: /\.js$/,
         exclude: nodeModules,
         loader: 'babel',
-        query: {
-          presets: ['es2015']
-        }
+        // query: {
+        //   presets: ['es2015']
+        // }
       },
       {
         test: /\.css$/,
@@ -41,7 +42,11 @@ var config = {
       }
     ]
   },
-  postcss: [autoprefixer({ browsers: ['last 2 versions', 'IE 7']})]
+  postcss: [autoprefixer({ browsers: ['last 2 versions', 'IE 7']})],
+  babel: {
+    presets: ['es2015']
+  },
+  plugins: [new HtmlWebpackPlugin()]
 };
 
 
