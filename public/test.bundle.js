@@ -98,7 +98,7 @@
 
 
 	// module
-	exports.push([module.id, "body{\r\n  color: #ff0 !important;\r\n}\r\n#app{\r\n  font-size: 12px !important;\r\n}\r\n", ""]);
+	exports.push([module.id, "body{\r\n  color: #f00 !important;\r\n}\r\n#app{\r\n  font-size: 12px !important;\r\n}\r\n", ""]);
 
 	// exports
 
@@ -106,8 +106,6 @@
 /***/ },
 /* 3 */
 /***/ function(module, exports) {
-
-	"use strict";
 
 	/*
 		MIT License http://www.opensource.org/licenses/mit-license.php

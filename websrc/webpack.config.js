@@ -43,10 +43,15 @@ var config = {
     ]
   },
   postcss: [autoprefixer({ browsers: ['last 2 versions', 'IE 7']})],
-  babel: {
-    presets: ['es2015']
-  },
-  plugins: [new HtmlWebpackPlugin()]
+  // babel: {
+  //   presets: ['es2015']
+  // },
+  plugins: [
+      new HtmlWebpackPlugin({
+        title: 'ftryweb首页',
+        filename: 'ftryweb.html'
+      })
+  ]
 };
 
 
