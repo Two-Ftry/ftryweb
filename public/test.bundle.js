@@ -52,7 +52,7 @@
 	var catObj = __webpack_require__(7);
 	console.log(catObj);
 
-	var txt = 'welcome to webpack';
+	var txt = 'welcome to webpack22';
 
 	// alert('use by webpack!!!!');
 	document.write(txt);

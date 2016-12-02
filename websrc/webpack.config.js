@@ -9,7 +9,9 @@ var nodeModules = 'node_modules';
 
 var config = {
   entry: {
-    test: './test/test.js'
+    test: './test/test.js',
+    test0: './test/test0.js',
+    test1: './test/test1.js'
   },
   output: {
     path: '../public/',
@@ -49,7 +51,27 @@ var config = {
   plugins: [
       new HtmlWebpackPlugin({
         title: 'ftryweb首页',
-        filename: 'ftryweb.html'
+        template: './test/template.html',
+        filename: 'ftryweb.html',
+        inject: 'head',
+        hash: true,
+        chunks: ['test']
+      }),
+      new HtmlWebpackPlugin({
+        title: 'ftryweb首页',
+        template: './test/template.html',
+        filename: 'ftryweb0.html',
+        inject: 'head',
+        hash: true,
+        chunks: ['test0']
+      }),
+      new HtmlWebpackPlugin({
+        title: 'ftryweb首页',
+        template: './test/template.html',
+        filename: 'ftryweb1.html',
+        inject: 'head',
+        hash: true,
+        chunks: ['test1']
       })
   ]
 };
