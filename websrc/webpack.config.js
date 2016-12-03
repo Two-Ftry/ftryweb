@@ -15,6 +15,7 @@ var config = {
   },
   output: {
     path: '../public/',
+    publicPath: '/ftryweb/',
     filename: '[name].bundle.js'
   },
   module: {

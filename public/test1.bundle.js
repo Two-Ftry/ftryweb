@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/ftryweb/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -79,8 +79,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.26.0/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/1.1.1/postcss-loader/index.js!./style.css", function() {
-				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.26.0/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/1.1.1/postcss-loader/index.js!./style.css");
+			module.hot.accept("!!./../node_modules/.npminstall/css-loader/0.26.1/css-loader/index.js!./../node_modules/.npminstall/postcss-loader/1.1.1/postcss-loader/index.js!./style.css", function() {
+				var newContent = require("!!./../node_modules/.npminstall/css-loader/0.26.1/css-loader/index.js!./../node_modules/.npminstall/postcss-loader/1.1.1/postcss-loader/index.js!./style.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -106,6 +106,8 @@
 /***/ },
 /* 3 */
 /***/ function(module, exports) {
+
+	"use strict";
 
 	/*
 		MIT License http://www.opensource.org/licenses/mit-license.php
@@ -424,8 +426,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.26.0/css-loader/index.js!./../../node_modules/.npminstall/sass-loader/4.0.2/sass-loader/index.js!./../../node_modules/.npminstall/postcss-loader/1.1.1/postcss-loader/index.js!./test.scss", function() {
-				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.26.0/css-loader/index.js!./../../node_modules/.npminstall/sass-loader/4.0.2/sass-loader/index.js!./../../node_modules/.npminstall/postcss-loader/1.1.1/postcss-loader/index.js!./test.scss");
+			module.hot.accept("!!./../node_modules/.npminstall/css-loader/0.26.1/css-loader/index.js!./../node_modules/.npminstall/sass-loader/4.0.2/sass-loader/index.js!./../node_modules/.npminstall/postcss-loader/1.1.1/postcss-loader/index.js!./test.scss", function() {
+				var newContent = require("!!./../node_modules/.npminstall/css-loader/0.26.1/css-loader/index.js!./../node_modules/.npminstall/sass-loader/4.0.2/sass-loader/index.js!./../node_modules/.npminstall/postcss-loader/1.1.1/postcss-loader/index.js!./test.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
