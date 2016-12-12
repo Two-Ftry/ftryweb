@@ -4,7 +4,11 @@
 
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+<<<<<<< HEAD
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+=======
+var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+>>>>>>> bada9e29a9ad7e0c2f020f26bb5c3855e700c9b7
 
 var nodeModules = 'node_modules';
 
@@ -33,13 +37,21 @@ var config = {
         test: /\.css$/,
         exclude: nodeModules,
         // loader: 'style!css!postcss'
+<<<<<<< HEAD
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'postcss-loader')
+=======
+        loader: ExtractTextWebpackPlugin.extract('style-loader', 'css-loader', 'postcss-loader')
+>>>>>>> bada9e29a9ad7e0c2f020f26bb5c3855e700c9b7
       },
       {
         test: /\.(scss|sass)$/,
         exclude: nodeModules,
         // loader: 'style!css!sass!postcss'
+<<<<<<< HEAD
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader', 'postcss-loader')
+=======
+        loader: ExtractTextWebpackPlugin.extract('style-loader', 'css-loader!sass-loader', 'postcss-loader')
+>>>>>>> bada9e29a9ad7e0c2f020f26bb5c3855e700c9b7
       },
       {
         test: /\.(jpg|jpeg|png|gif|woff|svg|eot|ttf)\??.*$/,
@@ -77,7 +89,13 @@ var config = {
         hash: true,
         chunks: ['test1']
       }),
+<<<<<<< HEAD
       new ExtractTextPlugin('[name].css')
+=======
+      new ExtractTextWebpackPlugin('[name].css?[contenthash]', {
+        disable: false
+      })
+>>>>>>> bada9e29a9ad7e0c2f020f26bb5c3855e700c9b7
   ]
 };
 
