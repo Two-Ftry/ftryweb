@@ -1,5 +1,5 @@
 
-require('./style.css');
+// require('./style.css');
 require('./test.scss');
 
 var catObj = require('./data.js');

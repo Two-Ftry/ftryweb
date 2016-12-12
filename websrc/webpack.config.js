@@ -4,6 +4,7 @@
 
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var nodeModules = 'node_modules';
 
@@ -15,7 +16,7 @@ var config = {
   },
   output: {
     path: '../public/',
-    publicPath: '/ftryweb/',
+    // publicPath: '/ftryweb/',
     filename: '[name].bundle.js'
   },
   module: {
@@ -31,12 +32,14 @@ var config = {
       {
         test: /\.css$/,
         exclude: nodeModules,
-        loader: 'style!css!postcss'
+        // loader: 'style!css!postcss'
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'postcss-loader')
       },
       {
         test: /\.(scss|sass)$/,
         exclude: nodeModules,
-        loader: 'style!css!sass!postcss'
+        // loader: 'style!css!sass!postcss'
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader', 'postcss-loader')
       },
       {
         test: /\.(jpg|jpeg|png|gif|woff|svg|eot|ttf)\??.*$/,
@@ -73,7 +76,8 @@ var config = {
         inject: 'head',
         hash: true,
         chunks: ['test1']
-      })
+      }),
+      new ExtractTextPlugin('[name].css')
   ]
 };
 
