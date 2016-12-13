@@ -2,19 +2,18 @@
  * @desc 读取入口文件
  */
  var glob = require('glob');
+var path = require('path');
 
-var _pattern = '../../**/*.entry.js';
+var _pattern = './business/**/*.entry.js';
 
 var readEntrys = {};
 
 readEntrys.getEntryFiles = function(pattern){
-    return glob.sync(pattern || _pattern, {
-      ignore: ['node_modules']
-    });
+  var _p = path.resolve(pattern || _pattern);
+  return glob.sync(_p);
 };
 
 //test
-
-var files = readEntrys.getEntryFiles();
-console.log(files);
+// var files = readEntrys.getEntryFiles();
+// console.log('files', files);
 module.exports = readEntrys;

@@ -1,12 +1,35 @@
 /**
  * Created by Administrator on 2016/11/23.
  */
-
+var path = require('path');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
+//util
+var readEntrys = require('./webpack-util/readEntrys');
+
+//变量
 var nodeModules = 'node_modules';
+var suffix = '.entry.js';
+
+var entryFiles = readEntrys.getEntryFiles();
+var entryPort = {};
+entryFiles.forEach(function(filepath){
+  // console.log(filepath);
+  var dir = path.dirname(filepath);
+  // var filename = filepath.split(dir)[1];
+  // var key = filename.split(suffix)[0];
+  // var key = filepath.replace(//g, function(match, code){
+  //
+  // });
+  entryPort[key] = filepath;
+
+  console.log('dir: %s, filename: %s, key: %s', dir, filename, key);
+});
+
+console.log(entryPort);
+
 
 var config = {
   entry: {
