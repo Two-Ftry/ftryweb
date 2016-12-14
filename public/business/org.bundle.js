@@ -42,54 +42,12 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(1);
-	__webpack_require__(5);
-
-	var catObj = __webpack_require__(7);
-	console.log(catObj);
-
-	var txt = 'welcome to webpack22';
-
-	// alert('use by webpack!!!!');
-	document.write(txt);
-
-	var sayHello = function sayHello(name) {
-	  return 'hello ' + name;
-	};
-
-	document.write(sayHello('jianfeng_huang'));
-
-/***/ },
-/* 1 */
 /***/ function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 6 */,
-/* 7 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = {
-	  cat1: 'cat1',
-	  cat2: 'cat2',
-	  cat3: 'cat3'
-	};
+	/*
+	 * org.entry.js
+	 */
+	"use strict";
 
 /***/ }
 /******/ ]);

@@ -12,31 +12,22 @@ var readEntrys = require('./webpack-util/readEntrys');
 //变量
 var nodeModules = 'node_modules';
 var suffix = '.entry.js';
-
+var devPath = path.join(__dirname, './');
+console.log('devPath', devPath);
 var entryFiles = readEntrys.getEntryFiles();
 var entryPort = {};
 entryFiles.forEach(function(filepath){
-  // console.log(filepath);
-  var dir = path.dirname(filepath);
-  // var filename = filepath.split(dir)[1];
-  // var key = filename.split(suffix)[0];
-  // var key = filepath.replace(//g, function(match, code){
-  //
-  // });
+  filepath = path.normalize(filepath);
+  var dir = filepath.replace(devPath, '');
+  var key = path.dirname(dir);
+  console.log('dir: %s, key: %s', dir, key);
   entryPort[key] = filepath;
-
-  console.log('dir: %s, filename: %s, key: %s', dir, filename, key);
 });
-
 console.log(entryPort);
 
-
+//webpack基本配置
 var config = {
-  entry: {
-    test: './test/test.js',
-    test0: './test/test0.js',
-    test1: './test/test1.js'
-  },
+  entry: entryPort,
   output: {
     path: '../public/',
     // publicPath: '/ftryweb/',
@@ -48,20 +39,15 @@ var config = {
         test: /\.js$/,
         exclude: nodeModules,
         loader: 'babel',
-        // query: {
-        //   presets: ['es2015']
-        // }
       },
       {
         test: /\.css$/,
         exclude: nodeModules,
-        // loader: 'style!css!postcss'
         loader: ExtractTextWebpackPlugin.extract('style-loader', 'css-loader', 'postcss-loader')
       },
       {
         test: /\.(scss|sass)$/,
         exclude: nodeModules,
-        // loader: 'style!css!sass!postcss'
         loader: ExtractTextWebpackPlugin.extract('style-loader', 'css-loader!sass-loader', 'postcss-loader')
       },
       {
@@ -72,39 +58,25 @@ var config = {
     ]
   },
   postcss: [autoprefixer({ browsers: ['last 2 versions', 'IE 7']})],
-  // babel: {
-  //   presets: ['es2015']
-  // },
   plugins: [
-      new HtmlWebpackPlugin({
-        title: 'ftryweb首页',
-        template: './test/template.html',
-        filename: 'ftryweb.html',
-        inject: 'head',
-        hash: true,
-        chunks: ['test']
-      }),
-      new HtmlWebpackPlugin({
-        title: 'ftryweb首页',
-        template: './test/template.html',
-        filename: 'ftryweb0.html',
-        inject: 'head',
-        hash: true,
-        chunks: ['test0']
-      }),
-      new HtmlWebpackPlugin({
-        title: 'ftryweb首页',
-        template: './test/template.html',
-        filename: 'ftryweb1.html',
-        inject: 'head',
-        hash: true,
-        chunks: ['test1']
-      }),
       new ExtractTextWebpackPlugin('[name].css?[contenthash]', {
         disable: false
       })
   ]
 };
 
+//plugin
+var plugins = [];
+for(var key in entryPort){
+  plugins.push(new HtmlWebpackPlugin({
+        title: 'ftryweb首页',
+        template: './common/template.html',
+        filename: key + '.html',
+        inject: 'head',
+        hash: true,
+        chunks: [key]
+      }));
+}
+config.plugins = config.plugins.concat(plugins);
 
 module.exports = config;
