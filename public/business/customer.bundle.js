@@ -42,12 +42,25 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
 
 	/**
 	 * customer.entry.js
 	 */
-	"use strict";
+	__webpack_require__(1);
+
+	var txt = 'welcome to webpack22';
+
+	// alert('use by webpack!!!!');
+	document.write(txt);
+
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);

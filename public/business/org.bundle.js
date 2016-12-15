@@ -44,10 +44,16 @@
 /* 0 */
 /***/ function(module, exports) {
 
+	'use strict';
+
 	/*
 	 * org.entry.js
 	 */
-	"use strict";
+	var sayHello = function sayHello(name) {
+	  return 'hello ' + name;
+	};
+
+	document.write(sayHello('jianfeng_huang'));
 
 /***/ }
 /******/ ]);

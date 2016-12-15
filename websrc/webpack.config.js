@@ -20,10 +20,8 @@ entryFiles.forEach(function(filepath){
   filepath = path.normalize(filepath);
   var dir = filepath.replace(devPath, '');
   var key = path.dirname(dir);
-  console.log('dir: %s, key: %s', dir, key);
   entryPort[key] = filepath;
 });
-console.log(entryPort);
 
 //webpack基本配置
 var config = {
@@ -68,8 +66,10 @@ var config = {
 //plugin
 var plugins = [];
 for(var key in entryPort){
+  var dir = path.dirname(entryPort[key]);
+  var modelSetting = require(path.join(dir, 'model.js'));
   plugins.push(new HtmlWebpackPlugin({
-        title: 'ftryweb首页',
+        title: modelSetting.title + '',
         template: './common/template.html',
         filename: key + '.html',
         inject: 'head',
