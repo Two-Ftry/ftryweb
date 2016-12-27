@@ -13,7 +13,7 @@ var readEntrys = require('./webpack-util/readEntrys');
 var nodeModules = 'node_modules';
 var suffix = '.entry.js';
 var devPath = path.join(__dirname, './');
-console.log('devPath', devPath);
+
 var entryFiles = readEntrys.getEntryFiles();
 var entryPort = {};
 entryFiles.forEach(function(filepath){
