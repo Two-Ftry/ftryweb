@@ -22,12 +22,14 @@ entryFiles.forEach(function(filepath){
   var key = path.dirname(dir);
   entryPort[key] = filepath;
 });
+console.log(entryPort);
 
 //webpack基本配置
 var config = {
   entry: entryPort,
   output: {
-    path: '../public/',
+    // path: '../public/',
+    path: '../tmp/',
     // publicPath: '/ftryweb/',
     filename: '[name].bundle.js'
   },

@@ -4,7 +4,7 @@
  var glob = require('glob');
 var path = require('path');
 
-var _pattern = './business/**/*.entry.js';
+var _pattern = './websrc/business/**/*.entry.js';
 
 var readEntrys = {};
 
