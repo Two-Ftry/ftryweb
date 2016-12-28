@@ -28,8 +28,7 @@ console.log(entryPort);
 var config = {
   entry: entryPort,
   output: {
-    // path: '../public/',
-    path: '../tmp/',
+    path: './public/',
     // publicPath: '/ftryweb/',
     filename: '[name].bundle.js'
   },
@@ -38,7 +37,7 @@ var config = {
       {
         test: /\.js$/,
         exclude: nodeModules,
-        loader: 'babel',
+        loader: 'babel-loader',
       },
       {
         test: /\.css$/,
@@ -72,7 +71,7 @@ for(var key in entryPort){
   var modelSetting = require(path.join(dir, 'model.js'));
   plugins.push(new HtmlWebpackPlugin({
         title: modelSetting.title + '',
-        template: './common/template.html',
+        template: './websrc/common/template.html',
         filename: key + '.html',
         inject: 'head',
         hash: true,
