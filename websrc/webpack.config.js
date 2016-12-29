@@ -73,8 +73,8 @@ for(var key in entryPort){
         title: modelSetting.title + '',
         template: './websrc/common/template.html',
         filename: key + '.html',
-        inject: 'head',
-        hash: true,
+        // inject: 'head',
+        // hash: false,
         chunks: [key]
       }));
 }
