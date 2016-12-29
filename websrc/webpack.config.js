@@ -20,7 +20,8 @@ entryFiles.forEach(function(filepath){
   filepath = path.normalize(filepath);
   var dir = filepath.replace(devPath, '');
   var key = path.dirname(dir);
-  entryPort[key] = filepath;
+  entryPort[key] = [];
+  entryPort[key].push(filepath);
 });
 console.log(entryPort);
 
@@ -29,7 +30,7 @@ var config = {
   entry: entryPort,
   output: {
     path: './public/',
-    // publicPath: '/ftryweb/',
+    publicPath: '/ftryweb/',
     filename: '[name].bundle.js'
   },
   module: {
@@ -67,7 +68,7 @@ var config = {
 //plugin
 var plugins = [];
 for(var key in entryPort){
-  var dir = path.dirname(entryPort[key]);
+  var dir = path.dirname(entryPort[key][0]);
   var modelSetting = require(path.join(dir, 'model.js'));
   plugins.push(new HtmlWebpackPlugin({
         title: modelSetting.title + '',

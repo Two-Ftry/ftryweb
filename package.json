@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "hotnode ./bin/www",
-    "webpack-dev": "webpack-dev-server --inline --hot --config ./websrc/webpack.config.js --content-base ./websrc/",
+    "webpack-dev": "webpack-dev-server --inline --hot --port 9999 --config ./websrc/webpack.config.js --content-base ./websrc/",
     "build": "webpack --config ./websrc/webpack.config.js"
   },
   "dependencies": {
@@ -20,9 +20,6 @@
     "ejs": "^2.5.2"
   },
   "devDependencies": {
-    "babel-core": "^6.18.2",
-    "babel-loader": "^6.2.8",
-    "babel-preset-es2015": "^6.18.0",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
@@ -35,6 +32,10 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2",
-    "yarn": "^0.17.10"
+    "yarn": "^0.17.10",
+    "babel-core": "^6.21.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.8.0"
   }
 }
