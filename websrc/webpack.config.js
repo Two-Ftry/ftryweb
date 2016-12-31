@@ -1,71 +1,54 @@
-/**
- * Created by Administrator on 2016/11/23.
- */
-var path = require('path');
-var autoprefixer = require('autoprefixer');
+var path = require("path");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 //util
 var readEntrys = require('./webpack-util/readEntrys');
 
-//变量
-var nodeModules = 'node_modules';
-var suffix = '.entry.js';
-var devPath = path.join(__dirname, './');
-
+var devPath = path.join(__dirname, './').replace(/\\/g, "/");
+console.log('devPath', devPath);
+//读取入口文件
 var entryFiles = readEntrys.getEntryFiles();
 var entryPort = {};
 entryFiles.forEach(function(filepath){
-  filepath = path.normalize(filepath);
+  console.log('filepath', filepath);
+  // filepath = path.normalize(filepath);
+  console.log('filepath2', filepath);
   var dir = filepath.replace(devPath, '');
+  console.log('dir', dir);
   var key = path.dirname(dir);
   entryPort[key] = [];
   entryPort[key].push(filepath);
 });
 console.log(entryPort);
 
-//webpack基本配置
 var config = {
   entry: entryPort,
+  // entry: {
+  //   'business/customer': ['./websrc/business/customer/customer.entry.js'],
+  //   'business/org': ['./websrc/business/org/org.entry.js']
+  // },
   output: {
-    path: './public/',
-    publicPath: '/ftryweb/',
-    filename: '[name].bundle.js'
+    path: path.resolve(__dirname, "../public"),
+    publicPath: "/ftryweb/",
+    filename: "[name].js"
   },
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: nodeModules,
-        loader: 'babel-loader',
-      },
-      {
-        test: /\.css$/,
-        exclude: nodeModules,
-        loader: ExtractTextWebpackPlugin.extract('style-loader', 'css-loader', 'postcss-loader')
-      },
-      {
-        test: /\.(scss|sass)$/,
-        exclude: nodeModules,
-        loader: ExtractTextWebpackPlugin.extract('style-loader', 'css-loader!sass-loader', 'postcss-loader')
-      },
-      {
-        test: /\.(jpg|jpeg|png|gif|woff|svg|eot|ttf)\??.*$/,
-        exclude: nodeModules,
-        loader: 'url-loader?name=[path][name].[ext]'
-      }
-    ]
-  },
-  postcss: [autoprefixer({ browsers: ['last 2 versions', 'IE 7']})],
   plugins: [
-      new ExtractTextWebpackPlugin('[name].css?[contenthash]', {
-        disable: false
-      })
+    // new HtmlWebpackPlugin({
+    //   title: 'This is greate',
+    //   template: './websrc/common/template.html',
+    //   filename: 'business/customer.html',
+    //   chunks: ['business/customer']
+    // }),
+    // new HtmlWebpackPlugin({
+    //   title: 'org',
+    //   template: './websrc/common/template.html',
+    //   filename: 'business/org.html',
+    //   chunks: ['business/org']
+    // })
   ]
 };
 
-//plugin
+//plugins
 var plugins = [];
 for(var key in entryPort){
   var dir = path.dirname(entryPort[key][0]);
@@ -74,8 +57,6 @@ for(var key in entryPort){
         title: modelSetting.title + '',
         template: './websrc/common/template.html',
         filename: key + '.html',
-        // inject: 'head',
-        // hash: false,
         chunks: [key]
       }));
 }

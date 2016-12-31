@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/ftryweb/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -42,18 +42,28 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	module.exports = __webpack_require__(2);
+
+
+/***/ },
+/* 1 */,
+/* 2 */
+/***/ function(module, exports) {
 
 	/*
 	 * org.entry.js
 	 */
-	var sayHello = function sayHello(name) {
-	  return 'hello ' + name;
-	};
+	 // var sayHello = (name)=>{
+	 //   return 'hello ' + name;
+	 // };
+	 var sayHello = function(name){
+	   return 'hello ' + name;
+	 };
 
-	document.write(sayHello('jianfeng_huang'));
+	 document.write(sayHello('jianfeng_huang'));
+
 
 /***/ }
 /******/ ]);

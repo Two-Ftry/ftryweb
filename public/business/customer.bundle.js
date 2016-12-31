@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/ftryweb/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -44,23 +44,23 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	module.exports = __webpack_require__(1);
 
-	/**
-	 * customer.entry.js
-	 */
-	__webpack_require__(1);
-
-	var txt = 'welcome to webpack22';
-
-	// alert('use by webpack!!!!');
-	document.write(txt);
 
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
+	/**
+	 * customer.entry.js
+	 */
+	// require('./style.css');
+
+	// let txt = 'welcome to webpack224455 为什么没有热加载, 热加载呢';
+
+	// alert('use by webpack!!!!');
+	document.write(' 333还真有为什么没有热加载, 热加载呢');
+
 
 /***/ }
 /******/ ]);
