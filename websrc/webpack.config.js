@@ -12,18 +12,17 @@ var readEntrys = require('./webpack-util/readEntrys');
 //变量
 var nodeModules = 'node_modules';
 var suffix = '.entry.js';
-var devPath = path.join(__dirname, './');
+var devPath = path.join(__dirname, './').replace(/\\/g, "/");
 
 var entryFiles = readEntrys.getEntryFiles();
 var entryPort = {};
 entryFiles.forEach(function(filepath){
-  filepath = path.normalize(filepath);
+  // filepath = path.normalize(filepath);
   var dir = filepath.replace(devPath, '');
   var key = path.dirname(dir);
   entryPort[key] = [];
   entryPort[key].push(filepath);
 });
-console.log(entryPort);
 
 //webpack基本配置
 var config = {

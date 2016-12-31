@@ -3,7 +3,7 @@
  */
 require('./style.css');
 
-let txt = 'welcome to webpack224455 为什么没有热加载, 热加载呢';
+let txt = 'welcome to webpack, it work well!!!还有热加载';
 
 // alert('use by webpack!!!!');
 document.write(txt);
