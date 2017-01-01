@@ -2,6 +2,7 @@
  * Created by Administrator on 2016/11/23.
  */
 var path = require('path');
+var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
@@ -17,7 +18,6 @@ var devPath = path.join(__dirname, './').replace(/\\/g, "/");
 var entryFiles = readEntrys.getEntryFiles();
 var entryPort = {};
 entryFiles.forEach(function(filepath){
-  // filepath = path.normalize(filepath);
   var dir = filepath.replace(devPath, '');
   var key = path.dirname(dir);
   entryPort[key] = [];
@@ -28,7 +28,7 @@ entryFiles.forEach(function(filepath){
 var config = {
   entry: entryPort,
   output: {
-    path: './public/',
+    path: './public/ftryweb/',
     publicPath: '/ftryweb/',
     filename: '[name].bundle.js'
   },
@@ -53,6 +53,11 @@ var config = {
         test: /\.(jpg|jpeg|png|gif|woff|svg|eot|ttf)\??.*$/,
         exclude: nodeModules,
         loader: 'url-loader?name=[path][name].[ext]'
+      },
+      {
+        test: /\.html$/,
+        exclude: nodeModules,
+        loader: 'html-loader'
       }
     ]
   },
@@ -60,8 +65,17 @@ var config = {
   plugins: [
       new ExtractTextWebpackPlugin('[name].css?[contenthash]', {
         disable: false
+      }),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: true,
+        output: {
+          comments: false
+        }
       })
-  ]
+  ],
+  resolve:{
+    extensions: ['', '.js', '.jpg', '.jpeg', '.png', 'gif', '.html']
+  }
 };
 
 //plugin
@@ -73,8 +87,6 @@ for(var key in entryPort){
         title: modelSetting.title + '',
         template: './websrc/common/template.html',
         filename: key + '.html',
-        // inject: 'head',
-        // hash: false,
         chunks: [key]
       }));
 }

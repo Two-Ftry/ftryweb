@@ -1,6 +1,8 @@
 /**
- * @desc 默认配置
+ * @desc 开发环境的配置
  */
- module.exports = {
-   IS_DEBUG: true
- };
+ var config = require('./default');
+
+ config.__IS_DEBUG__ = true;
+
+ module.exports = config;

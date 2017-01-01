@@ -1,5 +1,6 @@
 body{
   color: red !important;
+  background: url('../../assets/images/book.jpg') top left no-repeat;
 }
 #app{
   font-size: 12px !important;
