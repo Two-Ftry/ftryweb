@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "hotnode ./bin/www",
-    "webpack-dev": "webpack-dev-server --inline --hot --port 9999 --config ./websrc/webpack.config.js --content-base ./websrc/",
-    "build": "webpack --config ./websrc/webpack.config.js"
+    "webpack-dev": "webpack-dev-server --inline --hot --port 9999 --config ./websrc/webpack.config.js --content-base ./websrc/ --env dev",
+    "build": "webpack --config ./websrc/webpack.config.js  --env deploy"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
@@ -37,6 +37,7 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-es2015-arrow-functions": "^6.8.0",
-    "html-loader": "^0.4.4"
+    "html-loader": "^0.4.4",
+    "yargs": "^6.6.0"
   }
 }

@@ -6,6 +6,7 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+var yargs = require('yargs');
 
 //util
 var readEntrys = require('./webpack-util/readEntrys');
@@ -14,6 +15,10 @@ var readEntrys = require('./webpack-util/readEntrys');
 var nodeModules = 'node_modules';
 var suffix = '.entry.js';
 var devPath = path.join(__dirname, './').replace(/\\/g, "/");
+//命令行参数
+var argv = yargs.argv;
+//根据命令韩的env参数读取环境配置文件
+var envConfig = require('./env/' + argv.env);
 
 var entryFiles = readEntrys.getEntryFiles();
 var entryPort = {};
@@ -30,7 +35,7 @@ var config = {
   output: {
     path: './public/ftryweb/',
     publicPath: '/ftryweb/',
-    filename: '[name].bundle.js'
+    filename: envConfig.__IS_DEBUG__ ? '[name].js' : '[name]-[hash:6].js'
   },
   module: {
     loaders: [
@@ -63,14 +68,8 @@ var config = {
   },
   postcss: [autoprefixer({ browsers: ['last 2 versions', 'IE 7']})],
   plugins: [
-      new ExtractTextWebpackPlugin('[name].css?[contenthash]', {
+      new ExtractTextWebpackPlugin(envConfig.__IS_DEBUG__ ? '[name].css' : '[name]-[contenthash:6].css', {
         disable: false
-      }),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: true,
-        output: {
-          comments: false
-        }
       })
   ],
   resolve:{
@@ -85,9 +84,17 @@ for(var key in entryPort){
   var modelSetting = require(path.join(dir, 'model.js'));
   plugins.push(new HtmlWebpackPlugin({
         title: modelSetting.title + '',
-        template: './websrc/common/template.html',
+        template: './websrc/common/template.ejs',
         filename: key + '.html',
         chunks: [key]
+      }));
+}
+if(!envConfig.__IS_DEBUG__){
+  plugins.push(new webpack.optimize.UglifyJsPlugin({
+        compress: true,
+        output: {
+          comments: false
+        }
       }));
 }
 config.plugins = config.plugins.concat(plugins);
