@@ -57,7 +57,8 @@ var config = {
       {
         test: /\.(jpg|jpeg|png|gif|woff|svg|eot|ttf)\??.*$/,
         exclude: nodeModules,
-        loader: 'url-loader?name=[path][name].[ext]'
+        loader: envConfig.__IS_DEBUG__ ? 'url-loader?limit=10000&&name=./assets/[name].[ext]' :
+        'url-loader?limit=10000&&name=./assets/[name]-[hash:6].[ext]'
       },
       {
         test: /\.html$/,

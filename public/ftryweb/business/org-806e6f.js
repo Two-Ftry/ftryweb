@@ -1,1 +1,0 @@
-!function(t){function r(n){if(e[n])return e[n].exports;var o=e[n]={exports:{},id:n,loaded:!1};return t[n].call(o.exports,o,o.exports,r),o.loaded=!0,o.exports}var e={};return r.m=t,r.c=e,r.p="/ftryweb/",r(0)}({0:function(t,r,e){t.exports=e(16)},16:function(t,r){"use strict";var e=function(t){return"hello motuo111-"+t};document.write(e("jianfeng_huang"))}});
