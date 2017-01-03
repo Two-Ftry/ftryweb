@@ -73,7 +73,7 @@ var config = {
       })
   ],
   resolve:{
-    extensions: ['', '.js', '.jpg', '.jpeg', '.png', 'gif', '.html']
+    extensions: ['', '.js', '.css', '.scss', '.sass', '.jpg', '.jpeg', '.png', 'gif', '.html']
   }
 };
 
