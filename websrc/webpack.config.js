@@ -7,6 +7,9 @@ var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 var yargs = require('yargs');
+var os = require('os');
+var utils = require('util');
+var process = require('child_process');
 
 //util
 var readEntrys = require('./webpack-util/readEntrys');
@@ -15,6 +18,8 @@ var readEntrys = require('./webpack-util/readEntrys');
 var nodeModules = 'node_modules';
 var suffix = '.entry.js';
 var devPath = path.join(__dirname, './').replace(/\\/g, "/");
+var port = 9999;
+
 //命令行参数
 var argv = yargs.argv;
 //根据命令韩的env参数读取环境配置文件
@@ -99,5 +104,39 @@ if(!envConfig.__IS_DEBUG__){
       }));
 }
 config.plugins = config.plugins.concat(plugins);
+
+//自动打开浏览器
+if(envConfig.__IS_DEBUG__){
+  //dev server配置
+  config.devServer = {
+    contentBase: path.resolve('./websrc/'),
+    inline: true,
+    host: '0.0.0.0',
+    port: port
+  };
+
+  //获取网络接口
+  var interfaces = os.networkInterfaces();
+  var addresses = [];
+  for(var k in interfaces){
+    for(var index in interfaces[k]){
+      var address = interfaces[k][index];
+      if(address.family == 'IPv4' && !address.internal){
+        addresses.push(address.address);
+      }
+    }
+  }
+
+  var startStr = utils.format('start http://%s:%s/index.html',addresses[0],port);
+  setTimeout(function(){
+    process.exec(startStr, function(error, stdout, stderr){
+      if(error !== null){
+        console.log('exec error: ' + error);
+      }
+    });
+  }, 5000);
+
+}
+
 
 module.exports = config;

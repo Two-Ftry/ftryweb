@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "hotnode ./bin/www",
-    "webpack-dev": "webpack-dev-server --inline --hot --port 9999 --config ./websrc/webpack.config.js --content-base ./websrc/ --env dev",
+    "webpack-dev": "webpack-dev-server --hot --config ./websrc/webpack.config.js --env dev",
     "build": "webpack --config ./websrc/webpack.config.js  --env deploy"
   },
   "dependencies": {
