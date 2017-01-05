@@ -10,9 +10,11 @@ var yargs = require('yargs');
 var os = require('os');
 var utils = require('util');
 var process = require('child_process');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 //util
 var readEntrys = require('./webpack-util/readEntrys');
+var deleteFolder = require('./webpack-util/deleteFolder');
 
 //变量
 var nodeModules = 'node_modules';
@@ -72,6 +74,7 @@ var config = {
       }
     ]
   },
+
   postcss: [autoprefixer({ browsers: ['last 2 versions', 'IE 7']})],
   plugins: [
       new ExtractTextWebpackPlugin(envConfig.__IS_DEBUG__ ? '[name].css' : '[name]-[contenthash:6].css', {
@@ -95,6 +98,11 @@ for(var key in entryPort){
         chunks: [key]
       }));
 }
+//简单的copy文件
+// pulgins.push(new CopyWebpackPlugin([
+//   {from: '', to: ''}
+// ]));
+
 if(!envConfig.__IS_DEBUG__){
   plugins.push(new webpack.optimize.UglifyJsPlugin({
         compress: true,
@@ -104,6 +112,16 @@ if(!envConfig.__IS_DEBUG__){
       }));
 }
 config.plugins = config.plugins.concat(plugins);
+
+
+if(!envConfig.__IS_DEBUG__){
+  //清空文件夹
+  deleteFolder('./public/ftryweb/');
+}else{
+  //调试配置
+  config.debug = true;
+  config.devtool = 'eval';
+}
 
 //自动打开浏览器
 if(envConfig.__IS_DEBUG__){
