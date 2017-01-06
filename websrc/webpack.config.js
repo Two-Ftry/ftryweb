@@ -111,6 +111,12 @@ if(!envConfig.__IS_DEBUG__){
         }
       }));
 }
+//配置全局变量
+plugins.push(new webpack.DefinePlugin({
+  VERSION: JSON.stringify('1.0.0')
+}));
+//配置全局插件
+
 config.plugins = config.plugins.concat(plugins);
 
 
