@@ -35,6 +35,12 @@ entryFiles.forEach(function(filepath){
   entryPort[key] = [];
   entryPort[key].push(filepath);
 });
+//调试入口
+if(envConfig.__IS_DEBUG__){
+  entryPort['index'] = [];
+  entryPort['index'].push(path.resolve(__dirname, './index.js'));
+  envConfig['entryPort'] = JSON.stringify(entryPort);
+}
 
 //webpack基本配置
 var config = {
@@ -90,7 +96,12 @@ var config = {
 var plugins = [];
 for(var key in entryPort){
   var dir = path.dirname(entryPort[key][0]);
-  var modelSetting = require(path.join(dir, 'model.js'));
+  var modelSetting = {
+    title: 'ftryweb调试入口'
+  };
+  if(key != 'index'){
+    modelSetting = require(path.join(dir, 'model.js'));
+  }
   plugins.push(new HtmlWebpackPlugin({
         title: modelSetting.title + '',
         template: './websrc/common/template.ejs',
@@ -112,10 +123,11 @@ if(!envConfig.__IS_DEBUG__){
       }));
 }
 //配置全局变量
-plugins.push(new webpack.DefinePlugin({
-  VERSION: JSON.stringify('1.0.0')
-}));
+plugins.push(new webpack.DefinePlugin(envConfig));
 //配置全局插件
+plugins.push(new webpack.ProvidePlugin({
+  $: 'jquery'
+}))
 
 config.plugins = config.plugins.concat(plugins);
 
@@ -151,7 +163,7 @@ if(envConfig.__IS_DEBUG__){
     }
   }
 
-  var startStr = utils.format('start http://%s:%s/index.html',addresses[0],port);
+  var startStr = utils.format('start http://%s:%s/ftryweb/index.html',addresses[0],port);
   setTimeout(function(){
     process.exec(startStr, function(error, stdout, stderr){
       if(error !== null){
