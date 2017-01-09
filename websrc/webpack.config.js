@@ -21,6 +21,14 @@ var nodeModules = 'node_modules';
 var suffix = '.entry.js';
 var devPath = path.join(__dirname, './').replace(/\\/g, "/");
 var port = 9999;
+var alias = {
+  'vue$': 'vue/dist/vue.js',
+  'jquery': 'jquery',
+  root: path.resolve(__dirname, './'),
+  assets: path.resolve(__dirname, './assets'),
+  lib: path.resolve(__dirname, './lib'),
+  common: path.resolve(__dirname, './common')
+};
 
 //命令行参数
 var argv = yargs.argv;
@@ -77,6 +85,11 @@ var config = {
         test: /\.html$/,
         exclude: nodeModules,
         loader: 'html-loader'
+      },
+      {
+        test: /\.vue$/,
+        exclude: nodeModules,
+        loader: 'vue-loader'
       }
     ]
   },
@@ -88,7 +101,8 @@ var config = {
       })
   ],
   resolve:{
-    extensions: ['', '.js', '.css', '.scss', '.sass', '.jpg', '.jpeg', '.png', 'gif', '.html']
+    alias: alias,
+    extensions: ['', '.vue', '.js', '.css', '.scss', '.sass', '.jpg', '.jpeg', '.png', 'gif', '.html']
   }
 };
 
@@ -127,7 +141,7 @@ plugins.push(new webpack.DefinePlugin(envConfig));
 //配置全局插件
 plugins.push(new webpack.ProvidePlugin({
   $: 'jquery'
-}))
+}));
 
 config.plugins = config.plugins.concat(plugins);
 

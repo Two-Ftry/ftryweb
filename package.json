@@ -12,12 +12,13 @@
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
+    "ejs": "^2.5.2",
     "express": "~4.14.0",
     "jade": "~1.11.0",
+    "jquery": "^1.12.4",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
-    "ejs": "^2.5.2",
-    "jquery": "^1.12.4"
+    "vue": "^2.1.8"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
@@ -36,6 +37,8 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
+    "vue-loader": "^10.0.2",
+    "vue-template-compiler": "^2.1.8",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2",
     "yargs": "^6.6.0",
