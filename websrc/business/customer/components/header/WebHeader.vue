@@ -1,25 +1,25 @@
 <template lang="html">
-  <div class="">
-    <web-header><web-header>
+  <div class="header-box">
+    webpack
   </div>
 </template>
 
 <script>
-import WebHeader from './header/WebHeader';
 export default {
   data() {
     return {
     };
   },
   computed: {},
-  mounted() {},
   attached() {},
   methods: {},
-  components: {
-    WebHeader
-  }
+  components: {}
 };
 </script>
 
 <style lang="css">
+.header-box{
+  width: 100%;
+  height: 80px;
+}
 </style>

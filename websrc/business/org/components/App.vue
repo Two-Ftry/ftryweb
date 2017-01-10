@@ -22,4 +22,7 @@ export default {
 </script>
 
 <style lang="css">
+body{
+  background: url('../../../assets/images/book') top left no-repeat;
+}
 </style>

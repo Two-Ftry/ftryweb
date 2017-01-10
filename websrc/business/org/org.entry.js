@@ -1,8 +1,9 @@
 /*
  * org.entry.js
  */
- var sayHello = (name)=>{
-   return 'hello motuo111-' + name;
- };
+import Vue from 'vue';
 
- document.write(sayHello('jianfeng_huang'));
+require('common/css/normalize.css');
+
+var App = Vue.extend(require('./components/App.vue'));
+new App({}).$mount('#app');
