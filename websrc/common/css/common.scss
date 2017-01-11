@@ -1,0 +1,10 @@
+@import './var.scss';
+/* common setting -----------------------------------*/
+a{
+  color: $fontColor;
+  text-decoration: none;
+}
+a:hover{
+  background-color: blue;
+  color: $whiteColor;
+}
