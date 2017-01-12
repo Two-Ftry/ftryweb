@@ -27,7 +27,8 @@ var alias = {
   root: path.resolve(__dirname, './'),
   assets: path.resolve(__dirname, './assets'),
   lib: path.resolve(__dirname, './lib'),
-  common: path.resolve(__dirname, './common')
+  common: path.resolve(__dirname, './common'),
+  ui: path.resolve(__dirname, './ui')
 };
 
 //命令行参数
