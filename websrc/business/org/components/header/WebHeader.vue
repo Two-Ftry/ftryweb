@@ -16,14 +16,13 @@
         <i class="ftryweb icon-yezi">ftry</i>
       </a>
     </div>
-    <div class="" slot="right">
-      222
-    </div>
+    <header-right slot="right"></header-right>
   </navbar>
 </template>
 
 <script>
 import Navbar from 'ui/common/Navbar';
+import HeaderRight from './HeaderRight';
 export default {
   data() {
     return {
@@ -33,7 +32,8 @@ export default {
   attached() {},
   methods: {},
   components: {
-    Navbar
+    Navbar,
+    HeaderRight
   }
 };
 </script>

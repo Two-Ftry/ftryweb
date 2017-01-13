@@ -3,13 +3,17 @@
 body{
   font-family: "Microsoft YaHei", sans-serif;
 }
+*{
+  margin: 0;
+  padding: 0;
+}
 a{
   color: $fontColor;
   text-decoration: none;
 }
 a:hover{
-  background-color: $activeColor;
-  color: $whiteColor;
+  // background-color: $activeColor;
+  color: $green;
 }
 .clearfix:before, .clearfix:after{
   content: '';
