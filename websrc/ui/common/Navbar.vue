@@ -32,9 +32,9 @@ export default {
   width: 100%;
   min-height: 60px;
   .nav-innerbox{
-    max-width: 1200px;
+    max-width: $boxWidth;
     margin: 0 auto;
-    color: $whiteColor;
+    color: $white;
     line-height: 60px;
     .nav-left{
       float: left;

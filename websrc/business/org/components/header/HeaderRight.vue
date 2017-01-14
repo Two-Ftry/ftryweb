@@ -32,7 +32,7 @@ export default {
         a{
           display: block;
           padding: 0 20px;
-          color: $whiteColor;
+          color: $white;
           line-height: 60px;
         }
           a:hover{

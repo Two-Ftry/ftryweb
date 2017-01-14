@@ -44,11 +44,11 @@ export default {
   width: 100%;
   height: 59px;
   line-height: 58px;
-  background-color: $whiteColor;
+  background-color: $white;
   border-bottom: 1px solid #ccc;
   box-shadow: 1px 1px 1px #ccc;
   .header-innerbox{
-    width: 1000px;
+    width: $boxWidth;
     margin: 0 auto;
     .header-left-part{
       float: left;
@@ -65,7 +65,7 @@ export default {
       color: $activeColor;
     }
     a.active:hover{
-      color: $whiteColor;
+      color: $white;
     }
 
   }
@@ -83,7 +83,7 @@ export default {
   i{
     line-height: 85px;
     font-size: 28px;
-    color: $whiteColor;
+    color: $white;
   }
 }
 </style>
