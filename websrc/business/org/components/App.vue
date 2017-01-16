@@ -2,14 +2,16 @@
   <div class="">
     <web-header></web-header>
     <div class="content-box">
-      <carousel>
-        <carousel-item>
-          hhhh
-        </carousel-item>
-        <carousel-item>
-          hhhh2
-        </carousel-item>
-      </carousel>
+      <div class="content-slide-box">
+        <carousel>
+          <carousel-item>
+            <img class="slide-img" src="~assets/images/book" alt="" />
+          </carousel-item>
+          <carousel-item>
+            <img class="slide-img" src="~assets/images/book2" alt="" />
+          </carousel-item>
+        </carousel>
+      </div>
     </div>
     <web-footer></web-footer>
   </div>
@@ -43,6 +45,13 @@ body{
   /*background: url('../../../assets/images/book') top left no-repeat;*/
 }
 .content-box{
+  width: 100%;
+}
+.content-slide-box{
+  height: 861px;
+  overflow: hidden;
+}
+.slide-img{
   width: 100%;
 }
 </style>

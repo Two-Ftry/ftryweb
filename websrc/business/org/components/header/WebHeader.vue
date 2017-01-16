@@ -1,15 +1,4 @@
 <template lang="html">
-  <!-- <div class="header-box">
-    <div class="header-innerbox clearfix">
-      <div class="header-left-part">
-        <a href="#" class="active">首页</a>
-      </div>
-      <div class="header-right-part">
-        <a href="#">登录</a>
-        <a href="#">注册</a>
-      </div>
-    </div>
-  </div> -->
   <navbar>
     <div class="logo-box" slot="left">
       <a href="#">

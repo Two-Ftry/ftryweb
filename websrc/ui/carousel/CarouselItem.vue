@@ -10,7 +10,6 @@ export default {
     return {}
   },
   computed: {},
-  ready () {},
   attached () {},
   methods: {},
   components: {}
@@ -19,6 +18,9 @@ export default {
 
 <style lang="sass">
   .carousel-item{
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
   }
 </style>
