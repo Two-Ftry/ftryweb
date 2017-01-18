@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="carousel-item">
+  <div class="carousel-item" :style="{width: width}">
     <slot></slot>
   </div>
 </template>
@@ -9,7 +9,8 @@ export default {
   data () {
     return {
       index: 0,
-      show: false
+      show: false,
+      width: '100%'
     }
   },
   computed:{
@@ -27,6 +28,7 @@ export default {
       }
       i++;
     }
+    this.width = (100/$childs.length) + '%';
     this.$parent.indicator.push(this.index);
   },
   computed: {},
@@ -38,9 +40,6 @@ export default {
 
 <style lang="sass">
   .carousel-item{
-    // position: absolute;
-    // top: 0;
-    // left: 0;
     float: left;
   }
 </style>

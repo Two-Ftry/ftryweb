@@ -3,14 +3,7 @@
     <web-header></web-header>
     <div class="content-box">
       <div class="content-slide-box">
-        <carousel>
-          <carousel-item>
-            <img class="slide-img" src="~assets/images/book" alt="" />
-          </carousel-item>
-          <carousel-item>
-            <img class="slide-img" src="~assets/images/book2" alt="" />
-          </carousel-item>
-        </carousel>
+        <carousel-com></carousel-com>
       </div>
     </div>
     <web-footer></web-footer>
@@ -20,8 +13,7 @@
 <script>
 import WebHeader from './header/WebHeader';
 import WebFooter from './footer/WebFooter';
-import Carousel from 'ui/carousel/Carousel';
-import CarouselItem from 'ui/carousel/CarouselItem';
+import CarouselCom from './content/CarouselCom';
 export default {
   data() {
     return {
@@ -34,8 +26,7 @@ export default {
   components: {
     WebHeader,
     WebFooter,
-    Carousel,
-    CarouselItem
+    CarouselCom
   }
 };
 </script>

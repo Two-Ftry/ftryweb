@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="carousel-box">
-    <div class="carousel-innerbox" :style="{width: innerWidth}">
+    <div class="carousel-innerbox" :style="{width: innerWidth, left: left}">
       <slot></slot>
     </div>
     <div class="carousel-list-box clearfix">
@@ -11,6 +11,10 @@
             ></li>
       </ol>
     </div>
+    <div class="page-box prev-page-box" @click="prevPage">
+    </div>
+    <div class="page-box next-page-box" @click="nextPage">
+    </div>
   </div>
 </template>
 
@@ -20,6 +24,7 @@ export default {
     return {
       indicator: [],
       index: 0, //当前活跃的index
+      left: 0
     }
   },
   watch:{
@@ -38,15 +43,20 @@ export default {
       this.index = i;
     },
     slide(next, prev){
-      console.log('', next, prev);
-      // for(var c in this.$children){
-      //   var $child = this.$children[c];
-      //   if($child.show){
-      //
-      //   }else{
-      //
-      //   }
-      // }
+      // console.log('', next, prev);
+      this.left = (-next*100) + '%';
+    },
+    prevPage(){
+      if(this.index == 0){
+        return;
+      }
+      this.index --;
+    },
+    nextPage(){
+      if(this.index >= this.indicator.length-1){
+        return;
+      }
+      this.index ++;
     }
   },
   components: {}
@@ -59,8 +69,10 @@ export default {
     height: 100%;
     position: relative;
     .carousel-innerbox{
-      position: relative;
+      position: absolute;
+      top: 0;
       height: 100%;
+      overflow: hidden;
     }
     .carousel-list-box{
       position: absolute;
@@ -85,6 +97,26 @@ export default {
         background-color: #1abc9c;
         cursor: pointer;
       }
+    }
+    .page-box{
+      position: absolute;
+      top: 0;
+      width: 80px;
+      height: 100%;
+      background-color: #000;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .page-box:hover{
+      opacity: 0.3;
+    }
+    .prev-page-box{
+      left: 0;
+      box-shadow: 0 3px 15px #000;
+    }
+    .next-page-box{
+      right: 0;
+      box-shadow: 0 -3px 15px #000;
     }
   }
 
