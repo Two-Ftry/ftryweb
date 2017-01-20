@@ -20,6 +20,12 @@
 
 <script>
 export default {
+  props:{
+    circle: {
+      type: Boolean,
+      default: true
+    }
+  },
   data () {
     return {
       indicator: [],
@@ -47,16 +53,22 @@ export default {
       this.left = (-next*100) + '%';
     },
     prevPage(){
-      if(this.index == 0){
+      if(this.index == 0 && !this.circle){
         return;
+      }else if(this.index == 0 && this.circle){
+          this.index = this.indicator.length - 1;
+      }else{
+        this.index --;
       }
-      this.index --;
     },
     nextPage(){
-      if(this.index >= this.indicator.length-1){
+      if(this.index >= this.indicator.length-1 && !this.circle){
         return;
+      }else if(this.index >= this.indicator.length - 1 && this.circle){
+        this.index = 0;
+      }else{
+        this.index ++;
       }
-      this.index ++;
     }
   },
   components: {}
@@ -73,6 +85,7 @@ export default {
       top: 0;
       height: 100%;
       overflow: hidden;
+      transition: all 0.5s;
     }
     .carousel-list-box{
       position: absolute;

@@ -39,7 +39,7 @@ body{
   width: 100%;
 }
 .content-slide-box{
-  height: 861px;
+  height: 500px;
   overflow: hidden;
 }
 .slide-img{
