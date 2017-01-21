@@ -3,7 +3,8 @@
     <web-header></web-header>
     <div class="content-box">
       <div class="content-slide-box">
-        <carousel-com></carousel-com>
+        <!-- <carousel-com></carousel-com> -->
+        <date-range :data="dateRange"></date-range>
       </div>
     </div>
     <web-footer></web-footer>
@@ -14,9 +15,15 @@
 import WebHeader from './header/WebHeader';
 import WebFooter from './footer/WebFooter';
 import CarouselCom from './content/CarouselCom';
+import DateRange from 'ui/DatePicker/DateRange';
 export default {
   data() {
     return {
+      dateRange:{
+        val : '',
+        start: -1,
+        end: -1
+      }
     };
   },
   computed: {},
@@ -26,7 +33,8 @@ export default {
   components: {
     WebHeader,
     WebFooter,
-    CarouselCom
+    CarouselCom,
+    DateRange
   }
 };
 </script>
