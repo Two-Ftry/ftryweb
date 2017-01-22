@@ -2,9 +2,9 @@
   <div class="">
     <web-header></web-header>
     <div class="content-box">
-      <div class="content-slide-box">
-        <!-- <carousel-com></carousel-com> -->
-        <date-range :data="dateRange"></date-range>
+      <div class="content-slide-box" :style="{height: slideBoxHeight}">
+        <carousel-com circle="false"></carousel-com>
+        <!-- <date-range :data="dateRange"></date-range> -->
       </div>
     </div>
     <web-footer></web-footer>
@@ -16,6 +16,7 @@ import WebHeader from './header/WebHeader';
 import WebFooter from './footer/WebFooter';
 import CarouselCom from './content/CarouselCom';
 import DateRange from 'ui/DatePicker/DateRange';
+import $ from 'jQuery';
 export default {
   data() {
     return {
@@ -23,13 +24,26 @@ export default {
         val : '',
         start: -1,
         end: -1
-      }
+      },
+      slideBoxHeight: '500px'
     };
   },
-  computed: {},
-  mounted() {},
+  computed: {
+
+  },
+  mounted() {
+    this.setSlideBoxHeight();
+  },
   attached() {},
-  methods: {},
+  methods: {
+    setSlideBoxHeight(){
+      var screenHeight = $(window).height(),
+          headerHeight = $('.nav-box').height(),
+          footerHeight = $('.footer-box').height();
+      var contentHeight = screenHeight - headerHeight - footerHeight;
+      this.slideBoxHeight = contentHeight + 'px';
+    }
+  },
   components: {
     WebHeader,
     WebFooter,

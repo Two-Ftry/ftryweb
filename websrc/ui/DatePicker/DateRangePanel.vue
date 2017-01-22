@@ -223,7 +223,6 @@ export default {
           dObj.inRange = false;
         }
       }
-      dObj.inHoverRange = false;
       return dObj;
     },
     //设置日期的样式，用于选中日期范围/hover日期范围

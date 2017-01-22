@@ -49,7 +49,6 @@ export default {
       this.index = i;
     },
     slide(next, prev){
-      // console.log('', next, prev);
       this.left = (-next*100) + '%';
     },
     prevPage(){
