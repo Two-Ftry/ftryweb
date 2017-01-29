@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="carousel-box">
-    <div class="carousel-innerbox" :style="{width: innerWidth, left: left}">
+    <div class="carousel-innerbox" v-mouse-wheel="handleMouseWheel" :style="{width: innerWidth, left: left}">
       <slot></slot>
     </div>
     <div class="carousel-list-box clearfix">
@@ -30,7 +30,8 @@ export default {
     return {
       indicator: [],
       index: 0, //当前活跃的index
-      left: 0
+      left: 0,
+      isSliding: false //标记是否在滑动
     }
   },
   watch:{
@@ -50,6 +51,11 @@ export default {
     },
     slide(next, prev){
       this.left = (-next*100) + '%';
+      var me = this;
+      setTimeout(function(){
+          me.isSliding = false;
+      }, 500);//动画为500ms
+
     },
     prevPage(){
       if(this.index == 0 && !this.circle){
@@ -67,6 +73,17 @@ export default {
         this.index = 0;
       }else{
         this.index ++;
+      }
+    },
+    handleMouseWheel(wheelDelta){
+      if(this.isSliding){
+        return;
+      }
+      this.isSliding = true;
+      if(wheelDelta>0){
+        this.nextPage();
+      }else{
+        this.prevPage();
       }
     }
   },

@@ -5,9 +5,9 @@ var EventUtil = {};
 
 //绑定事件
 EventUtil.addHandler = function(el, type, handler){
-  if(window.addEventLister){
-    el.addEventLister(type, handler, false);
-  }else if(window.attachEvent){
+  if(el.addEventListener){
+    el.addEventListener(type, handler, false);
+  }else if(el.attachEvent){
     el.attachEvent('on' + type, handler);
   }else{
     el['on' + type] = handler;
@@ -16,9 +16,9 @@ EventUtil.addHandler = function(el, type, handler){
 
 //事件解除绑定
 EventUtil.removeHandler = function(el, type, handler){
-  if(window.addEventLister){
-    el.removeEventLister(type, handler, false);
-  }else if(window.attachEvent){
+  if(el.removeEventListener){
+    el.removeEventListener(type, handler, false);
+  }else if(el.attachEvent){
     el.detachEvent('on' + type, handler);
   }else{
     el['on' + type] = null;

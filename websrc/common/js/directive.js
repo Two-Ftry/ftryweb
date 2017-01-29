@@ -7,25 +7,29 @@ var __handleMouseWheel;
 
 Vue.directive('mouse-wheel', {
   bind: function(el, binding, vnode, oldVnode){
-    if(!EventUtil){
+    if(!common || !common.EventUtil){
       return;
     }
+    var me = this;
     __handleMouseWheel = function(event){
-      event = EventUtil.getEvent(event);
-      var wheelDelta = EventUtil.getWheelDelta(event);
-      //TODO
+      //函数节流
+      common.util.throttle(function(){
+        event = common.EventUtil.getEvent(event);
+        var wheelDelta = common.EventUtil.getWheelDelta(event);
+        binding.value(wheelDelta);
+      }, me, 300);
     };
 
-    EventUtil.addHandler(document, 'mousewheel', __handleMouseWheel);
-    EventUtil.addHandler(document, 'DOMMouseScroll', __handleMouseWheel);
+    common.EventUtil.addHandler(document, 'mousewheel', __handleMouseWheel);
+    common.EventUtil.addHandler(window, 'DOMMouseScroll', __handleMouseWheel);
   },
   unbind: function(){
-    if(!EventUtil){
+    if(!common || !common.EventUtil){
       return;
     }
     if(__handleMouseWheel){
-      EventUtil.removeHandler(document, 'mousewheel', __handleMouseWheel);
-      EventUtil.removeHandler(document, 'DOMMouseScroll', __handleMouseWheel);
+      common.EventUtil.removeHandler(document, 'mousewheel', __handleMouseWheel);
+      common.EventUtil.removeHandler(window, 'DOMMouseScroll', __handleMouseWheel);
     }
   }
 });
