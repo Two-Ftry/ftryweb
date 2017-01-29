@@ -18,7 +18,8 @@
     "jquery": "^1.12.4",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
-    "vue": "^2.1.8"
+    "vue": "^2.1.8",
+    "vue-router": "^2.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.0",

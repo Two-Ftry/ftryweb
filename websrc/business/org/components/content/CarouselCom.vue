@@ -62,4 +62,7 @@ export default {
   top: 120px;
   right: 250px;
 }
+.slide-img{
+  width: 100%;
+}
 </style>

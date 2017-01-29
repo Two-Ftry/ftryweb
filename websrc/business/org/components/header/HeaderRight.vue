@@ -3,7 +3,9 @@
     <ul>
       <li class="active"><a href="#">首页</a></li>
       <li><a href="#">登录</a></li>
-      <li><a href="#">注册</a></li>
+      <li>
+        <router-link to="/register">注册</router-link>
+      </li>
     </ul>
   </div>
 </template>
