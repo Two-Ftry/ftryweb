@@ -3,14 +3,20 @@
     <carousel-item>
       <div class="slide-img-box">
         <img class="slide-img" src="~assets/images/book" alt="" />
-        <p class="text-1">来，在这里写一些文字吧</p>
+        <p class="img-text text-1">来，在这里写一些文字吧</p>
       </div>
     </carousel-item>
     <carousel-item>
-      <img class="slide-img" src="~assets/images/book2" alt="" />
+      <div class="slide-img-box">
+        <img class="slide-img" src="~assets/images/book2" alt="" />
+        <p class="img-text text-2">来，在这里写一些文字吧</p>
+      </div>
     </carousel-item>
     <carousel-item>
-      <img class="slide-img" src="~assets/images/coffee" alt="" />
+      <div class="slide-img-box">
+        <img class="slide-img" src="~assets/images/coffee" alt="" />
+        <p class="img-text text-3">来，在这里写一些文字吧</p>
+      </div>
     </carousel-item>
   </carousel>
 </template>
@@ -38,12 +44,22 @@ export default {
 .slide-img-box{
   position: relative;
 }
-.text-1{
+.img-text{
   position: absolute;
-  top: 120px;
-  right: 200px;
   font-size: 44px;
   color: #fff;
   font-family: '宋体';
+}
+.text-1{
+  top: 220px;
+  right: 350px;
+}
+.text-2{
+  top: 185px;
+  left: 100px;
+}
+.text-3{
+  top: 120px;
+  right: 250px;
 }
 </style>
