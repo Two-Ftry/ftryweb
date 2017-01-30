@@ -5,6 +5,7 @@ import Vue from 'vue';
 
 var __handleMouseWheel;
 
+//鼠标滚轮指令
 Vue.directive('mouse-wheel', {
   bind: function(el, binding, vnode, oldVnode){
     if(!common || !common.EventUtil){
@@ -31,5 +32,26 @@ Vue.directive('mouse-wheel', {
       common.EventUtil.removeHandler(document, 'mousewheel', __handleMouseWheel);
       common.EventUtil.removeHandler(window, 'DOMMouseScroll', __handleMouseWheel);
     }
+  }
+});
+
+//滚动指令
+
+Vue.directive('scroll', {
+  inserted: function(el, binding, vnode, oldVnode){
+    if(!common || !common.EventUtil){
+      return;
+    }
+    var me = this;
+    common.EventUtil.addHandler(el, 'scroll', function(event){
+      common.util.throttle(function(){ //节流
+        var offsetHeight = el.offsetHeight;
+        var scrollHeight = el.scrollHeight;
+        var scrollTop = el.scrollTop;
+        if(scrollHeight - offsetHeight - scrollTop < 50){
+          binding.value();
+        }
+      }, me);
+    });
   }
 });
