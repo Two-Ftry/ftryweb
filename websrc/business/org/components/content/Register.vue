@@ -6,9 +6,8 @@
           <fw-input icon="geren" placeholder="请输入用户名"></fw-input>
         </div>
         <div class="">
-          <fw-input placeholder="请输入密码"></fw-input>
+          <fw-input placeholder="请输入密码" icon="iconfontlock"></fw-input>
         </div>
-
       </div>
     </div>
   </div>
@@ -17,6 +16,13 @@
 <script>
 import FwInput from 'ui/form/FwInput';
 export default {
+  data() {
+    return {
+      data: {
+        value: 'init value'
+      }
+    };
+  },
   components:{
     FwInput
   }

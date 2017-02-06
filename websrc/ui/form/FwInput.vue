@@ -1,6 +1,18 @@
 <template lang="html">
   <div class="fw-input-box">
-    <input type="text" name="" value="" :placeholder="placeholder" :style="inputStyle"/>
+    <input v-if="!disabledVar" type="text"
+            v-model="data.value"
+            :placeholder="placeholder"
+            :style="inputStyle"
+            :class="[type+'-input', disabledClass]"
+            />
+    <input v-if="disabledVar" type="text"
+                    :value="data.value"
+                    :placeholder="placeholder"
+                    :style="inputStyle"
+                    :class="[type+'-input', disabledClass]"
+                    :readonly="disabledVar?'readonly':false"
+            />
     <i v-if="icon" class="ftryweb" :class="['icon-' + icon]"></i>
   </div>
 </template>
@@ -9,7 +21,7 @@
 export default {
   props:{
     type:{
-      type: String,
+      type: String,//primary|error|success
       default: 'primary'
     },
     disabled: [Boolean, String],
@@ -18,7 +30,13 @@ export default {
       type: String,
       default: 'right'
     },
-    placeholder: String
+    placeholder: String,
+    data: {
+      type: Object,
+      default: function(){
+        return {};
+      }
+    }
   },
   computed: {
     inputStyle(){
@@ -27,6 +45,16 @@ export default {
         o['padding-right'] = '30px';
       }
       return o;
+    },
+    disabledVar(){
+      return this.disabled == true || this.disabled == 'true' || this.disabled == 'disabled';
+    },
+    disabledClass(){
+      if(this.disabledVar){
+        return 'disabled-input';
+      }else{
+        return '';
+      }
     }
   }
 }
@@ -38,16 +66,38 @@ export default {
     display: inline-block;
     input{
       display: inline-block;
-      height: 32px;
-      line-height: 32px;
+      width: 206px;
+      height: 36px;
+      line-height: 36px;
       padding: 0 10px;
       border-radius: 4px;
-      // border: 1px solid #fff;
-      border: 2px solid #dce4ec
+      box-sizing: border-box;
+      outline: none;
+      font-size: 14px;
+    }
+    .primary-input{
+      border: 2px solid #dce4ec;
+    }
+    .primary-input:focus, .primary-input:active{
+      border-color: #1abc9c;
+    }
+    .error-input{
+      border: 2px solid #e74c3c;
+      color: #e74c3c;
+    }
+    .success-input{
+      border: 2px solid #2ecc71;
+      color: #2ecc71;
+    }
+    .disabled-input{
+      background-color: #eaeded;
+      border: 2px solid transparent;
+      color: #cad2d3;
+      cursor: default;
     }
     i{
       position: absolute;
-      top: 5px;
+      top: 9px;
       right: 10px;
     }
   }
