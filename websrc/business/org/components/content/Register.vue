@@ -2,11 +2,14 @@
   <div class="reg-box">
     <div class="reg-inner-box">
       <div class="reg-form-box">
-        <div class="">
-          <fw-input icon="geren" placeholder="请输入用户名"></fw-input>
+        <div class="row">
+          <fw-input icon="geren" type="white" placeholder="请输入用户名" width="300px"></fw-input>
         </div>
-        <div class="">
-          <fw-input placeholder="请输入密码" icon="iconfontlock"></fw-input>
+        <div class="row2">
+          <fw-input type="white" placeholder="请输入密码" icon="iconfontlock" width="300px"></fw-input>
+        </div>
+        <div class="row3">
+          <fw-button type="primary" width="300px">登录</fw-button>
         </div>
       </div>
     </div>
@@ -14,7 +17,7 @@
 </template>
 
 <script>
-import FwInput from 'ui/form/FwInput';
+import {FwInput, FwButton} from 'ui/form/';
 export default {
   data() {
     return {
@@ -24,7 +27,8 @@ export default {
     };
   },
   components:{
-    FwInput
+    FwInput,
+    FwButton
   }
 }
 </script>
@@ -36,8 +40,21 @@ export default {
   background: url('~assets/images/rooster.jpg') top left no-repeat;
   background-size: 100% 100%;
   .reg-inner-box{
-      width: $boxWidth;
-      margin: 0 auto;
+    width: $boxWidth;
+    margin: 0 auto;
+    .reg-form-box{
+      display: inline-block;
+      margin-top: 250px;
+      padding: 24px 23px 20px;
+      border-radius: 6px;
+      background-color: #eceff1;
+      .row2{
+        margin-top: 8px;
+      }
+      .row3{
+        margin-top: 15px;
+      }
+    }
   }
 }
 </style>
