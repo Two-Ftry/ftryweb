@@ -10,6 +10,13 @@
         </div>
         <div class="row3">
           <fw-button type="primary" width="300px">登录</fw-button>
+          <fw-button type="warning" width="300px">登录</fw-button>
+          <fw-button type="gray" width="300px">登录</fw-button>
+          <fw-button type="danger" width="300px">登录</fw-button>
+          <fw-button type="success" width="300px">登录</fw-button>
+          <fw-button type="default" width="300px">登录</fw-button>
+          <fw-button type="info" width="300px">登录</fw-button>
+          <fw-button type="info" width="300px" disabled="true">登录</fw-button>
         </div>
       </div>
     </div>

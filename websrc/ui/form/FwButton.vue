@@ -14,7 +14,11 @@ export default {
       default: 'default'
     },
     width: String,
-    disabled: [String, Boolean]
+    disabled: {
+      type: Boolean,
+      coerce: common.util.coerce.boolean,
+      default: false
+    }
   },
   data() {
     return {
@@ -80,5 +84,70 @@ export default {
 .primary-btn:active{
   background-color: $primaryActive;
   border-color: $primaryActive;
+}
+// warning
+.warning-btn{
+  background-color: $warning;
+  border-color: $warning;
+}
+.warning-btn:hover, .warning-btn:focus{
+  background-color: $warningHover;
+  border-color: $warningHover;
+}
+.warning-btn:active{
+  background-color: $warningActive;
+  border-color: $warningActive;
+}
+// gray
+.gray-btn{
+  background-color: $gray;
+  border-color: $gray;
+}
+.gray-btn:hover, .gray-btn:focus{
+  background-color: $grayHover;
+  border-color: $grayHover;
+}
+.gray-btn:active{
+  background-color: $grayActive;
+  border-color: $grayActive;
+}
+// danger
+.danger-btn{
+  background-color: $danger;
+  border-color: $danger;
+}
+.danger-btn:hover, .danger-btn:focus{
+  background-color: $dangerHover;
+  border-color: $dangerHover;
+}
+.danger-btn:active{
+  background-color: $dangerActive;
+  border-color: $dangerActive;
+}
+// info
+.info-btn{
+  background-color: $info;
+  border-color: $info;
+}
+.info-btn:hover, .info-btn:focus{
+  background-color: $infoHover;
+  border-color: $infoHover;
+}
+.info-btn:active{
+  background-color: $infoActive;
+  border-color: $infoActive;
+}
+// success
+.success-btn{
+  background-color: $success;
+  border-color: $success;
+}
+.success-btn:hover, .success-btn:focus{
+  background-color: $successHover;
+  border-color: $successHover;
+}
+.success-btn:active{
+  background-color: $successActive;
+  border-color: $successActive;
 }
 </style>
