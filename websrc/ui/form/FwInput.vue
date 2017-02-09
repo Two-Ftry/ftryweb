@@ -1,17 +1,17 @@
 <template lang="html">
   <div class="fw-input-box">
-    <input v-if="!disabledVar" type="text"
+    <input v-if="!_disabled" type="text"
             v-model="data.value"
             :placeholder="placeholder"
             :style="inputStyle"
             :class="[type+'-input', disabledClass]"
             />
-    <input v-if="disabledVar" type="text"
+    <input v-if="_disabled" type="text"
                     :value="data.value"
                     :placeholder="placeholder"
                     :style="inputStyle"
                     :class="[type+'-input', disabledClass]"
-                    :readonly="disabledVar?'readonly':false"
+                    :readonly="_disabled?'readonly':false"
             />
     <i v-if="icon" class="ftryweb" :class="['icon-' + icon]"></i>
   </div>
@@ -50,11 +50,11 @@ export default {
       }
       return o;
     },
-    disabledVar(){
+    _disabled(){
       return this.disabled == true || this.disabled == 'true' || this.disabled == 'disabled';
     },
     disabledClass(){
-      if(this.disabledVar){
+      if(this._disabled){
         return 'disabled-input';
       }else{
         return '';

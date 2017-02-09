@@ -15,8 +15,7 @@ export default {
     },
     width: String,
     disabled: {
-      type: Boolean,
-      coerce: common.util.coerce.boolean,
+      type: [Boolean, String],
       default: false
     }
   },
@@ -36,7 +35,16 @@ export default {
     classObj(){
       var arr = [];
       arr.push(this.type + '-btn');
+      if(this._disabled){
+        arr.push('disabled-btn');
+      }
       return arr;
+    },
+    _disabled(){
+      if(this.disabled == 'disabled'){
+        return true;
+      }
+      return common.util.coerce.boolean(this.disabled);
     }
   },
   attached() {},
@@ -149,5 +157,14 @@ export default {
 .success-btn:active{
   background-color: $successActive;
   border-color: $successActive;
+}
+//disabled
+.disabled-btn,
+.disabled-btn:hover,
+.disabled-btn:focus,
+.disabled-btn:active{
+  background-color: $disbaledColor;
+  border-color: $disbaledColor;
+  cursor: default;
 }
 </style>

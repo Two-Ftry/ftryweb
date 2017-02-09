@@ -13,5 +13,9 @@
    {
      path: '/register',
      component: require('./components/content/Register')
+   },
+   {
+     path: '/login',
+     component: require('./components/content/Login')
    }
  ];
