@@ -66,7 +66,7 @@ export default {
     top: -15px;
     left: 0;
     height: 75px;
-    padding: 0 15px;
+    padding: 0 68px;
     background-color:  $green;
   }
   i{

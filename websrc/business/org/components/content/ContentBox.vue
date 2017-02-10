@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="outer-box" :style="boxStyle">
-    <div class="content-inner-box">
+    <div class="inner-box">
       <slot></slot>
     </div>
   </div>
@@ -37,8 +37,9 @@ export default {
   height: 100%;
   background-color: $white;
   background-size: 100% 100% !important;
-  .content-inner-box{
+  .inner-box{
     width: $boxWidth;
+    height: 100%;
     margin: 0 auto;
   }
 }

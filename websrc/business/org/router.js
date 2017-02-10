@@ -17,5 +17,13 @@
    {
      path: '/login',
      component: require('./components/content/Login')
+   },
+   {
+     path: '/org',
+     component: require('./components/content/org/OrgSetting')
+   },
+   {
+     path: '/role',
+     component: require('./components/content/role/RoleSetting')
    }
  ];
