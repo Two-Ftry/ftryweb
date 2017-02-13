@@ -3,7 +3,8 @@
     <div class="org-setting-panel">
       <menu-list></menu-list>
       <div class="org-setting-inner-panel">
-        org setting
+        <ec-tree  :list="list"
+                @event-tree-click="onToLoadSubOrg"></ec-tree>
       </div>
     </div>
   </content-box>
@@ -12,18 +13,48 @@
 <script>
 import ContentBox from '../ContentBox';
 import MenuList from '../common/MenuList';
+import EcTree from 'ui/tree/EcTree';
+import list from './data';
 export default {
   data() {
     return {
+      list: list
     };
   },
   computed: {},
   ready() {},
   attached() {},
-  methods: {},
+  methods: {
+    onToLoadSubOrg(data){
+      var id = data.data.id;
+      if(!data.show){
+        return;
+      }
+      var orgs = [{id: '002', name: '002'}, {id: '003', name: '003'}];
+      var r = this.findOrgById(this.list, id, orgs);
+      console.log(r);
+    },
+    findOrgById(orgList, orgId, orgs){
+      for(var i = 0, len = orgList.length; i < len; i++){
+        var item = orgList[i];
+        if(item.id == orgId){
+          item.subOrgs = orgs;
+          return item;
+        }
+        if(item.subOrgs){
+          var r = this.findOrgById(item.subOrgs, orgId, orgs);
+          if(r){
+            return r;
+          }
+        }
+      }
+      return null;
+    }
+  },
   components: {
     ContentBox,
-    MenuList
+    MenuList,
+    EcTree
   }
 };
 </script>
