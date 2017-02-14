@@ -3,8 +3,11 @@
     <div class="org-setting-panel">
       <menu-list></menu-list>
       <div class="org-setting-inner-panel">
-        <ec-tree  :list="list"
-                @event-tree-click="onToLoadSubOrg"></ec-tree>
+        <div class="org-setting-left-part">
+          <ec-tree  :list="list"
+                  @event-tree-click="onToLoadSubOrg"></ec-tree>
+        </div>
+
       </div>
     </div>
   </content-box>
@@ -30,7 +33,15 @@ export default {
       if(!data.show){
         return;
       }
-      var orgs = [{id: '002', name: '002'}, {id: '003', name: '003'}];
+
+      var orgs = [];
+      for(var i = 0; i < 2; i++){
+        var tmp = Math.round(Math.random()*10000) + '';
+        orgs.push({
+          id: tmp,
+          name: tmp
+        });
+      }
       var r = this.findOrgById(this.list, id, orgs);
       console.log(r);
     },
@@ -38,7 +49,9 @@ export default {
       for(var i = 0, len = orgList.length; i < len; i++){
         var item = orgList[i];
         if(item.id == orgId){
-          item.subOrgs = orgs;
+          if(!item.subOrgs){
+            item.subOrgs = orgs;
+          }
           return item;
         }
         if(item.subOrgs){
@@ -70,6 +83,12 @@ export default {
     height: 100%;
     margin-left: 220px;
     background-color: $white;
+  }
+  .org-setting-left-part{
+    padding-right: 18px;
+    width: 250px;
+    height: 100%;
+    overflow: auto;
   }
 }
 </style>
