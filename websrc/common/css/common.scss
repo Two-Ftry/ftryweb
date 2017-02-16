@@ -26,3 +26,28 @@ a:hover{
 ul,ol{
   list-style: none;
 }
+table{
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+table th{
+  border: 1px solid $default;
+  background-color: $default;
+  font-weight: normal;
+  color: $white;
+}
+ table td{
+  border: 1px solid $gray;
+}
+table tbody tr:hover{
+  background-color: $gray;
+}
+table th, table td{
+  text-align: left;
+  border-left: none;
+  border-right: none;
+  text-indent: 4px;
+  line-height: 36px;
+  font-size: 12px;
+}

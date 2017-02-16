@@ -7,7 +7,9 @@
           <ec-tree  :list="list"
                   @event-tree-click="onToLoadSubOrg"></ec-tree>
         </div>
-
+        <div class="org-setting-right-part">
+          <user-list></user-list>
+        </div>
       </div>
     </div>
   </content-box>
@@ -17,6 +19,7 @@
 import ContentBox from '../ContentBox';
 import MenuList from '../common/MenuList';
 import EcTree from 'ui/tree/EcTree';
+import UserList from './UserList';
 import list from './data';
 export default {
   data() {
@@ -67,7 +70,8 @@ export default {
   components: {
     ContentBox,
     MenuList,
-    EcTree
+    EcTree,
+    UserList
   }
 };
 </script>
@@ -85,10 +89,14 @@ export default {
     background-color: $white;
   }
   .org-setting-left-part{
+    float: left;
     padding-right: 18px;
     width: 250px;
     height: 100%;
     overflow: auto;
+  }
+  .org-setting-right-part{
+    margin-left: 250px;
   }
 }
 </style>

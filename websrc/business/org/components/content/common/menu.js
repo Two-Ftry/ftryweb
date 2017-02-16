@@ -9,5 +9,10 @@ module.exports = [
     name: '角色管理',
     path: '/role',
     icon: 'yanjing'
+  },
+  {
+    name: '组织列表',
+    path: '/orgList',
+    icon: 'liebiao'
   }
 ];

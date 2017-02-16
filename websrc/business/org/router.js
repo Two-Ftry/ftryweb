@@ -25,5 +25,9 @@
    {
      path: '/role',
      component: require('./components/content/role/RoleSetting')
+   },
+   {
+     path: '/orgList',
+     component: require('./components/content/org/OrgList')
    }
  ];

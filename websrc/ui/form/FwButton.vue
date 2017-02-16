@@ -17,6 +17,10 @@ export default {
     disabled: {
       type: [Boolean, String],
       default: false
+    },
+    position: {
+      type: String, // left | right
+      default: 'left'
     }
   },
   data() {
@@ -37,6 +41,9 @@ export default {
       arr.push(this.type + '-btn');
       if(this._disabled){
         arr.push('disabled-btn');
+      }
+      if(this.position == 'right'){
+        arr.push('fw-btn-right');
       }
       return arr;
     },
@@ -65,6 +72,9 @@ export default {
   cursor: pointer;
   border-radius: 4px;
   color: $white;
+}
+.fw-btn-right{
+  float: right;
 }
 // default
 .default-btn{

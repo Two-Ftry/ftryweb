@@ -72,17 +72,31 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../../common/css/var.scss";
 .ec-tree-list{
   padding-left: 18px;
+  li{
+    padding: 2px 0;
+  }
   .selected{
+    background-color: $success;
+    color: $white;
     .ec-tree-item-name{
-      background-color: red;
     }
+  }
+  .ec-tree-item-name{
+    padding: 0 8px;
+    line-height: 18px;
   }
   .ec-tree-span{
     display: inline-block;
+    padding-left: 4px;
     white-space: nowrap;
     cursor: pointer;
+  }
+  .ec-tree-span:hover{
+    background-color: $successHover;
+    color: $white;
   }
 }
 .ec-showhide{
