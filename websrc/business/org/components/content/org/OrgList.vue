@@ -15,32 +15,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>姓名</td>
-              <td>手机</td>
-              <td>
-                <i class="ftryweb icon-bianji-copy org-ctrl org-ctrl-edit"></i>
-                <i class="ftryweb icon-shanchu org-ctrl org-ctrl-del"></i>
-              </td>
-            </tr>
-            <tr>
-              <td>姓名</td>
-              <td>手机</td>
-              <td>
-                <i class="ftryweb icon-bianji-copy org-ctrl org-ctrl-edit"></i>
-                <i class="ftryweb icon-shanchu org-ctrl org-ctrl-del"></i>
-              </td>
-            </tr>
-            <tr>
-              <td>姓名</td>
-              <td>手机</td>
-              <td>
-                <i class="ftryweb icon-bianji-copy org-ctrl org-ctrl-edit"></i>
-                <i class="ftryweb icon-shanchu org-ctrl org-ctrl-del"></i>
-              </td>
-            </tr>
+            <org-list-item v-for="item in list">
+            </org-list-item>
           </tbody>
         </table>
+        <ec-page count="55"></ec-page>
       </div>
     </div>
   </content-box>
@@ -50,9 +29,12 @@
 import ContentBox from '../ContentBox';
 import MenuList from '../common/MenuList';
 import {FwButton} from 'ui/form';
+import OrgListItem from './OrgListItem';
+import EcPage from 'ui/common/EcPage';
 export default {
   data() {
     return {
+      list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     };
   },
   computed: {},
@@ -64,7 +46,9 @@ export default {
   components: {
     ContentBox,
     MenuList,
-    FwButton
+    FwButton,
+    OrgListItem,
+    EcPage
   }
 };
 </script>

@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg">
 <metadata>
-Created by FontForge 20120731 at Thu Feb 16 18:50:59 2017
+Created by FontForge 20120731 at Sun Feb 19 16:06:00 2017
  By admin
 </metadata>
 <defs>
@@ -75,9 +75,9 @@ d="M723 17l-456 379l456 379v-758z" />
     <glyph glyph-name="bianji-copy" unicode="&#xe63f;" 
 d="M933 629q-33 53 -76 97q-45 44 -99 76l60 60q10 0 25.5 -1t50.5 -12t54.5 -30.5t30.5 -52t12 -55.5l1 -23zM397 85h-182v182l22 22q60 -28 107 -75t75 -107zM882 578l-411 -419q-34 56 -79 102q-47 46 -103 79l419 412q58 -27 103 -71.5t71 -102.5zM155 742v-717h717v299
 l120 119v-451q0 -36 -25.5 -61.5t-61.5 -25.5h-783q-36 0 -61.5 25.5t-25.5 61.5v783q0 36 25.5 61.5t61.5 25.5h451l-119 -120h-299z" />
-    <glyph glyph-name="jiantou-copy" unicode="&#xe639;" 
+    <glyph glyph-name="arrow-left" unicode="&#xe639;" 
 d="M592 -123l-537 506l536 508l34 -35l-500 -473l499 -471z" />
-    <glyph glyph-name="chevron-copy-copy-copy-copy-copy-copy" unicode="&#xe624;" 
+    <glyph glyph-name="arrow-right" unicode="&#xe624;" 
 d="M775 406l-479 480q-11 10 -25.5 10t-25 -10.5t-10.5 -25t10 -25.5l456 -456l-448 -448q-11 -10 -11 -24.5t10.5 -24.5t24.5 -10t25 10l465 466q1 0 4 6q1 0 2 0.5t2 1.5q10 10 10 25t-10 25z" />
     <glyph glyph-name="sanjiao-right" unicode="&#xe604;" 
 d="M301 751l456 -379l-456 -379v758z" />

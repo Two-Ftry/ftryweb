@@ -1,10 +1,10 @@
 
 @font-face {font-family: "ftryweb";
-  src: url('iconfont.eot?t=1487242260000'); /* IE9*/
-  src: url('iconfont.eot?t=1487242260000#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1487242260000') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1487242260000') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1487242260000#ftryweb') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1487491560240'); /* IE9*/
+  src: url('iconfont.eot?t=1487491560240#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1487491560240') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1487491560240') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1487491560240#ftryweb') format('svg'); /* iOS 4.1- */
 }
 
 .ftryweb {
@@ -43,9 +43,9 @@
 
 .icon-bianji-copy:before { content: "\e63f"; }
 
-.icon-jiantou-copy:before { content: "\e639"; }
+.icon-arrow-left:before { content: "\e639"; }
 
-.icon-chevron-copy-copy-copy-copy-copy-copy:before { content: "\e624"; }
+.icon-arrow-right:before { content: "\e624"; }
 
 .icon-sanjiao-right:before { content: "\e604"; }
 
