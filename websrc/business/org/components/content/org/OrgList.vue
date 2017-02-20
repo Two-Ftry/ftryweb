@@ -19,7 +19,9 @@
             </org-list-item>
           </tbody>
         </table>
-        <ec-page count="55"></ec-page>
+        <div class="page-container">
+          <ec-page count="55"></ec-page>
+        </div>
       </div>
     </div>
   </content-box>
@@ -30,7 +32,6 @@ import ContentBox from '../ContentBox';
 import MenuList from '../common/MenuList';
 import {FwButton} from 'ui/form';
 import OrgListItem from './OrgListItem';
-import EcPage from 'ui/common/EcPage';
 export default {
   data() {
     return {
@@ -47,8 +48,7 @@ export default {
     ContentBox,
     MenuList,
     FwButton,
-    OrgListItem,
-    EcPage
+    OrgListItem
   }
 };
 </script>
@@ -88,5 +88,8 @@ export default {
 }
 .org-ctrl-del:hover{
   color: $dangerHover;
+}
+.page-container{
+  margin-top: 20px;
 }
 </style>
