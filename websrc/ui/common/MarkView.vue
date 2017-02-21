@@ -1,20 +1,16 @@
 <template lang="html">
-  <div class="mark-view-box">
+  <div class="mark-view-box" @click="onToEmitEvent">
   </div>
 </template>
 
 <script>
 export default {
   name: 'MarkView',
-  data() {
-    return {
-    };
-  },
-  computed: {},
-  ready() {},
-  attached() {},
-  methods: {},
-  components: {}
+  methods:{
+    onToEmitEvent(){
+      this.$emit('event-click-mark-view');
+    }
+  }
 };
 </script>
 
@@ -23,8 +19,8 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   background-color: #000;
   opacity: 0.4;
   filter: alpha(opacity=40);

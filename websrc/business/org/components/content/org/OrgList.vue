@@ -24,6 +24,8 @@
         </div>
       </div>
     </div>
+
+    <ec-model></ec-model>
   </content-box>
 </template>
 
@@ -32,6 +34,7 @@ import ContentBox from '../ContentBox';
 import MenuList from '../common/MenuList';
 import {FwButton} from 'ui/form';
 import OrgListItem from './OrgListItem';
+import EcModel from 'ui/model/EcModel';
 export default {
   data() {
     return {
@@ -48,7 +51,8 @@ export default {
     ContentBox,
     MenuList,
     FwButton,
-    OrgListItem
+    OrgListItem,
+    EcModel
   }
 };
 </script>
