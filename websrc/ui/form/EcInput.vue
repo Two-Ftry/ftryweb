@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="fw-input-box">
+  <div class="ec-input-box">
     <input v-if="!_disabled" type="text"
             v-model="data.value"
             :placeholder="placeholder"
@@ -19,6 +19,7 @@
 
 <script>
 export default {
+  name: 'EcInput',
   props:{
     type:{
       type: String,//primary|error|success|white
@@ -65,7 +66,7 @@ export default {
 </script>
 
 <style lang="sass">
-  .fw-input-box{
+  .ec-input-box{
     position: relative;
     display: inline-block;
     input{

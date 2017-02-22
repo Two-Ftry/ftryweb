@@ -4,7 +4,7 @@
       <menu-list></menu-list>
       <div class="org-list-inner-panel">
         <div class="org-ctrl-box clearfix">
-          <fw-button type="primary" position="right">增加组织</fw-button>
+          <ec-button type="primary" position="right">增加组织</ec-button>
         </div>
         <table cellpadding="0" cellspacing="0" class="org-table-list">
           <thead>
@@ -24,21 +24,41 @@
         </div>
       </div>
     </div>
-
-    <ec-model></ec-model>
+    <ec-model title="添加组织"
+              :data="modelData"
+              :btns="btns"
+              hide-footer="false">
+      <div class="">
+        添加组织
+      </div>
+      <div class="" slot="footer">
+        底部
+      </div>
+    </ec-model>
   </content-box>
 </template>
 
 <script>
 import ContentBox from '../ContentBox';
 import MenuList from '../common/MenuList';
-import {FwButton} from 'ui/form';
 import OrgListItem from './OrgListItem';
 import EcModel from 'ui/model/EcModel';
 export default {
   data() {
     return {
-      list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      modelData:{
+        isShow: true
+      },
+      btns: [
+        {
+          text: '确定',
+          type: 'success',
+          callback: function(){
+            //
+          }
+        }
+      ]
     };
   },
   computed: {},
@@ -50,7 +70,6 @@ export default {
   components: {
     ContentBox,
     MenuList,
-    FwButton,
     OrgListItem,
     EcModel
   }

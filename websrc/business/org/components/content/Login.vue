@@ -2,20 +2,19 @@
   <content-box bg="url('/assets/images/rooster.jpg') top left no-repeat">
       <div class="login-form-box">
         <div class="row">
-          <fw-input icon="geren" type="white" placeholder="请输入用户名" width="300px"></fw-input>
+          <ec-input icon="geren" type="white" placeholder="请输入用户名" width="300px"></ec-input>
         </div>
         <div class="row2">
-          <fw-input type="white" placeholder="请输入密码" icon="iconfontlock" width="300px"></fw-input>
+          <ec-input type="white" placeholder="请输入密码" icon="iconfontlock" width="300px"></ec-input>
         </div>
         <div class="row3">
-          <fw-button type="primary" width="300px">登录</fw-button>
+          <ec-button type="primary" width="300px">登录</ec-button>
         </div>
       </div>
   </content-box>
 </template>
 
 <script>
-import {FwInput, FwButton} from 'ui/form/';
 import ContentBox from './ContentBox';
 export default {
   data() {
@@ -26,8 +25,6 @@ export default {
     };
   },
   components:{
-    FwInput,
-    FwButton,
     ContentBox
   }
 }

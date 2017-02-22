@@ -11,7 +11,7 @@ require('assets/fonts/iconfont.css');
 window.common = require('common/js/');
 require('common/js/directive');
 
-var EcCommon = require('ui/common/');
+var EcCommon = require('ui/');
 
 //配置vue-router
 Vue.use(VueRouter);

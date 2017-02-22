@@ -13,4 +13,20 @@ footer: 默认有取消、确定两个按钮，按钮可配置，也可不使用
 
 ###3、宽高
 宽度可以设置，默认为500px
-高度自适应
+高度自适应,并控制不超出屏幕高度
+
+##2、传入参数说明
+```json
+title: String，头部
+data.isShow: 是否显示，由于vue2.0不支持sync值，所以isShow的控制使用对象的方式传递
+btns: 按钮数组
+[
+{
+  text: '确定',
+  type: 'primary', //按钮的样式，primary|default|info|danger|success|warining，此外还支持按钮支持的各个参数
+  callback: function(){//点击之后的对调方法
+    //codes
+  }
+}
+]
+```

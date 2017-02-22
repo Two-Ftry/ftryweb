@@ -1,15 +1,22 @@
 <template lang="html">
-  <div class="ec-model-box">
+  <div class="ec-model-box" v-show="data.isShow">
     <div class="ec-model-inner-box">
       <div class="ec-model-header">
         <p v-text="title"></p>
-        <i class="ftryweb icon-guanbi ec-model-close"></i>
+        <i class="ftryweb icon-guanbi ec-model-close" @click="onToClose"></i>
       </div>
       <div class="ec-model-body">
-        model body
+        <slot></slot>
       </div>
-      <div class="ec-model-footer">
-          model footer
+      <div class="ec-model-footer" v-show="!_hideFooter">
+          <slot name="footer"></slot>
+          <ec-button v-for="btn in btns"
+                    :type="btn.type ? btn.type : ''"
+                    :width="btn.width ? btn.width : ''"
+                    :position="btn.position ? btn.position : 'right'"
+                    :disabled="btn.disabled ? btn.disabled : 'false'"
+                    :size="btn.size ? btn.size : 'default'"
+                    >{{btn.text}}</ec-button>
       </div>
     </div>
     <mark-view></mark-view>
@@ -22,16 +29,37 @@ export default {
     title: {
       type: String,
       default: 'Model title'
-    }
+    },
+    data: {
+      type: Object,
+      default: function(){
+        return {};
+      },
+      required: true
+    },
+    hideFooter: {
+      type: [Boolean, String], //是否隐藏footer
+      default: false
+    },
+    btns: Array
   },
   data() {
     return {
     };
   },
-  computed: {},
-  ready() {},
+  computed: {
+    _hideFooter(){
+      return common.util.coerce.boolean(this.hideFooter);
+    }
+  },
+  mounted() {},
   attached() {},
-  methods: {},
+  methods: {
+    onToClose(){
+      this.data.isShow = false;
+      this.$emit('event-ecmodel-close');
+    }
+  },
   components: {}
 };
 </script>

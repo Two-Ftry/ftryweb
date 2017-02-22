@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  name: 'EcButton',
   props:{
     type:{
       type: String, // primary|default|info|danger|success|warining|
@@ -21,6 +22,10 @@ export default {
     position: {
       type: String, // left | right
       default: 'left'
+    },
+    size: {
+      type: String,
+      default: 'default' //default|large|small
     }
   },
   data() {
