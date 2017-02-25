@@ -26,13 +26,12 @@
     </div>
     <ec-model title="添加组织"
               :data="modelData"
-              :btns="btns"
               hide-footer="false">
       <div class="">
         添加组织
       </div>
       <div class="" slot="footer">
-        底部
+
       </div>
     </ec-model>
   </content-box>
@@ -45,6 +44,7 @@ import OrgListItem from './OrgListItem';
 import EcModel from 'ui/model/EcModel';
 export default {
   data() {
+    var me = this;
     return {
       list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       modelData:{
@@ -55,7 +55,14 @@ export default {
           text: '确定',
           type: 'success',
           callback: function(){
-            //
+            //TODO
+          }
+        },
+        {
+          text: '取消',
+          type: 'default',
+          callback: function(){
+            me.modelData.isShow = false;
           }
         }
       ]

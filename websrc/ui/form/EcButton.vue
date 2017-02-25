@@ -50,6 +50,9 @@ export default {
       if(this.position == 'right'){
         arr.push('fw-btn-right');
       }
+      if(this.size != 'default'){
+        arr.push('fw-btn-size-' + this.size);
+      }
       return arr;
     },
     _disabled(){
@@ -71,12 +74,25 @@ export default {
   width: 206px;
   font-size: 14px;
   line-height: 36px;
+  height: 36px;
   border: 2px solid transparent;
   box-sizing: border-box;
   outline:none;
   cursor: pointer;
   border-radius: 4px;
   color: $white;
+}
+.fw-btn-size-large{
+    width: 256px;
+    line-height: 44px;
+    height: 44px;
+    font-size: 16px;
+}
+.fw-btn-size-small{
+  width: 120px;
+  line-height: 30px;
+  height: 30px;
+  font-size: 12px;
 }
 .fw-btn-right{
   float: right;

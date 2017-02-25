@@ -8,15 +8,20 @@
       <div class="ec-model-body">
         <slot></slot>
       </div>
-      <div class="ec-model-footer" v-show="!_hideFooter">
+      <div class="ec-model-footer clearfix" v-show="!_hideFooter">
           <slot name="footer"></slot>
-          <ec-button v-for="btn in btns"
-                    :type="btn.type ? btn.type : ''"
-                    :width="btn.width ? btn.width : ''"
-                    :position="btn.position ? btn.position : 'right'"
-                    :disabled="btn.disabled ? btn.disabled : 'false'"
-                    :size="btn.size ? btn.size : 'default'"
-                    >{{btn.text}}</ec-button>
+          <span class="ec-btn-box" v-for="(btn, index) in _btns" :class="{'first-child': index==0}"
+                @click="onToClickBtn(btn)"
+          >
+            <ec-button :type="btn.type ? btn.type : ''"
+                      :width="btn.width ? btn.width : ''"
+                      :position="btn.position ? btn.position : 'right'"
+                      :disabled="btn.disabled ? btn.disabled : 'false'"
+                      :size="btn.size ? btn.size : 'small'"
+
+                      >{{btn.text}}</ec-button>
+          </span>
+
       </div>
     </div>
     <mark-view></mark-view>
@@ -44,12 +49,37 @@ export default {
     btns: Array
   },
   data() {
+    var me = this;
     return {
+      okBtn:{
+        text: '确定',
+        type: 'success',
+        callback: function(){
+          me.$emit('event-ecmodel-ok');
+        }
+      },
+      cancelBtn:{
+        text: '取消',
+        type: 'default',
+        callback: function(){
+          me.$emit('event-ecmodel-cancel');
+        }
+      }
     };
   },
   computed: {
     _hideFooter(){
       return common.util.coerce.boolean(this.hideFooter);
+    },
+    _btns(){
+      if(!this.btns || this.btns.length == 0){
+        var arr = [];
+        arr.push(this.okBtn);
+        arr.push(this.cancelBtn);
+        return arr;
+      }else{
+        return this.btns;
+      }
     }
   },
   mounted() {},
@@ -58,6 +88,9 @@ export default {
     onToClose(){
       this.data.isShow = false;
       this.$emit('event-ecmodel-close');
+    },
+    onToClickBtn(btnItem){
+      btnItem.callback && btnItem.callback();
     }
   },
   components: {}
@@ -106,4 +139,11 @@ export default {
   padding: 15px 20px;
   border-top: 1px solid $gray;
 }
+  .ec-btn-box{
+    float: right;
+    margin-right: 8px;
+  }
+  .ec-btn-box.first-child{
+    margin-right: 0;
+  }
 </style>
