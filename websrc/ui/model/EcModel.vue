@@ -1,31 +1,33 @@
 <template lang="html">
-  <div class="ec-model-box" v-show="data.isShow">
-    <div class="ec-model-inner-box">
-      <div class="ec-model-header">
-        <p v-text="title"></p>
-        <i class="ftryweb icon-guanbi ec-model-close" @click="onToClose"></i>
-      </div>
-      <div class="ec-model-body">
-        <slot></slot>
-      </div>
-      <div class="ec-model-footer clearfix" v-show="!_hideFooter">
-          <slot name="footer"></slot>
-          <span class="ec-btn-box" v-for="(btn, index) in _btns" :class="{'first-child': index==0}"
-                @click="onToClickBtn(btn)"
-          >
-            <ec-button :type="btn.type ? btn.type : ''"
-                      :width="btn.width ? btn.width : ''"
-                      :position="btn.position ? btn.position : 'right'"
-                      :disabled="btn.disabled ? btn.disabled : 'false'"
-                      :size="btn.size ? btn.size : 'small'"
+  <transition name="ecmf">
+    <div class="ec-model-box" v-show="data.isShow">
+      <div class="ec-model-inner-box">
+        <div class="ec-model-header">
+          <p v-text="title"></p>
+          <i class="ftryweb icon-guanbi ec-model-close" @click="onToClose"></i>
+        </div>
+        <div class="ec-model-body">
+          <slot></slot>
+        </div>
+        <div class="ec-model-footer clearfix" v-show="!_hideFooter">
+            <slot name="footer"></slot>
+            <span class="ec-btn-box" v-for="(btn, index) in _btns" :class="{'first-child': index==0}"
+                  @click="onToClickBtn(btn)"
+            >
+              <ec-button :type="btn.type ? btn.type : ''"
+                        :width="btn.width ? btn.width : ''"
+                        :position="btn.position ? btn.position : 'right'"
+                        :disabled="btn.disabled ? btn.disabled : 'false'"
+                        :size="btn.size ? btn.size : 'small'"
 
-                      >{{btn.text}}</ec-button>
-          </span>
+                        >{{btn.text}}</ec-button>
+            </span>
 
+        </div>
       </div>
+      <mark-view></mark-view>
     </div>
-    <mark-view></mark-view>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -62,6 +64,7 @@ export default {
         text: '取消',
         type: 'default',
         callback: function(){
+          me.data.isShow = false;
           me.$emit('event-ecmodel-cancel');
         }
       }
@@ -145,5 +148,8 @@ export default {
   }
   .ec-btn-box.first-child{
     margin-right: 0;
+  }
+  .enter-ecmf, .enter-active-ecmf{
+    // transition:  2s;
   }
 </style>

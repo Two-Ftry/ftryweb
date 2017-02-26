@@ -1,7 +1,9 @@
 <template lang="html">
   <button class="fw-btn" type="button" name="button"
       :class="classObj"
-      :style="btnStyle">
+      :style="btnStyle"
+      @click="onToClick"
+      >
     <slot></slot>
   </button>
 </template>
@@ -63,7 +65,11 @@ export default {
     }
   },
   attached() {},
-  methods: {},
+  methods: {
+    onToClick(){
+      this.$emit('event-ecbutton-click');
+    }
+  },
   components: {}
 };
 </script>

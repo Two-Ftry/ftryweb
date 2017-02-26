@@ -4,7 +4,7 @@
       <menu-list></menu-list>
       <div class="org-list-inner-panel">
         <div class="org-ctrl-box clearfix">
-          <ec-button type="primary" position="right">增加组织</ec-button>
+          <ec-button type="primary" position="right" @event-ecbutton-click="onToShow">增加组织</ec-button>
         </div>
         <table cellpadding="0" cellspacing="0" class="org-table-list">
           <thead>
@@ -30,9 +30,6 @@
       <div class="">
         添加组织
       </div>
-      <div class="" slot="footer">
-
-      </div>
     </ec-model>
   </content-box>
 </template>
@@ -48,7 +45,7 @@ export default {
     return {
       list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       modelData:{
-        isShow: true
+        isShow: false
       },
       btns: [
         {
@@ -72,7 +69,9 @@ export default {
   mounted() {},
   attached() {},
   methods: {
-
+    onToShow(){
+      this.modelData.isShow = true;
+    }
   },
   components: {
     ContentBox,

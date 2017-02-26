@@ -30,3 +30,19 @@ btns: 按钮数组
 }
 ]
 ```
+
+###1、默认的btns
+```html
+<ec-model title="添加组织"
+          :data="modelData"
+          @event-ecmodel-ok="onToCtrlModelOk"
+          @event-ecmodel-cancel="onToCtrlModelCancel"
+          hide-footer="false">
+  <div class="">
+    添加组织
+  </div>
+  <div class="" slot="footer">
+
+  </div>
+</ec-model>
+```
