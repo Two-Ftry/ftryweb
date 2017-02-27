@@ -87,6 +87,14 @@ export default {
   cursor: pointer;
   border-radius: 4px;
   color: $white;
+  //不允许用户选择
+  -webkit-user-select: none;
+      -moz-user-select: none;
+        -ms-user-select: none;
+  user-select: none;
+  -webkit-box-shadow:  0 3px 5px rgba(0, 0, 0, .125);
+            box-shadow:  0 3px 5px rgba(0, 0, 0, .125);
+  
 }
 .fw-btn-size-large{
     width: 256px;
