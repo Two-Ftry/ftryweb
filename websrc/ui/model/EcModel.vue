@@ -1,5 +1,5 @@
 <template lang="html">
-  <transition name="ecmf">
+  <transition :name="animation">
     <div class="ec-model-box" v-show="data.isShow">
       <div class="ec-model-inner-box">
         <div class="ec-model-header">
@@ -48,7 +48,11 @@ export default {
       type: [Boolean, String], //是否隐藏footer
       default: false
     },
-    btns: Array
+    btns: Array,
+    animation: {//fade|slide
+      type: String,
+      default: 'slide'
+    }
   },
   data() {
     var me = this;
@@ -149,7 +153,19 @@ export default {
   .ec-btn-box.first-child{
     margin-right: 0;
   }
-  .enter-ecmf, .enter-active-ecmf{
-    // transition:  2s;
+  //淡入淡出
+  .fade-enter-active, .fade-leave-active{
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+  .fade-enter, .fade-leave-to{
+    opacity: 0;
+  }
+  //滑入、滑出
+  .slide-enter-active, .slide-leave-active{
+    transition: top 0.3s;
+  }
+  .slide-enter, .slide-leave-to{
+    top: -280px;
   }
 </style>

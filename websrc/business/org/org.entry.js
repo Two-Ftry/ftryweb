@@ -27,11 +27,11 @@ const router = new VueRouter({
 Vue.use(EcCommon);
 
 //使用Sentry.js
-Vue.config('https://9de95d9d46fe4eabb18c276836ec5d57@sentry.io/142240')
+Raven.config('https://9de95d9d46fe4eabb18c276836ec5d57@sentry.io/142240')
   .addPlugin(RavenVue, Vue)
   .install();
-Vue.config.errorHandler = function(){
-  //TODO
+Vue.config.errorHandler = function(err, vm){
+  Raven.catchException(err);
 };
 var App = Vue.extend(require('./components/App.vue'));
 new App({

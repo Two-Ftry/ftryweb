@@ -26,9 +26,13 @@
     </div>
     <ec-model title="添加组织"
               :data="modelData"
+              animation="slide"
               hide-footer="false">
       <div class="">
-        添加组织
+        <div class="">
+          <label for="">组织名称：</label>
+          <ec-input placeholder="请输入组织名称" width="300px" icon="zuzhi"></ec-input>
+        </div>
       </div>
     </ec-model>
   </content-box>
