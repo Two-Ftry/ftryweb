@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    <web-header><web-header>
+    <web-header></web-header>
   </div>
 </template>
 

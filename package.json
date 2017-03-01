@@ -20,9 +20,7 @@
     "raven-js": "^3.11.0",
     "serve-favicon": "~2.3.0",
     "vue": "^2.1.8",
-    "vue-router": "^2.2.0"
-  },
-  "devDependencies": {
+    "vue-router": "^2.2.0",
     "autoprefixer": "^6.7.0",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
